@@ -6,4 +6,10 @@ angular.module('Room8', [
 
 .config(function($routeProvider) {
   $routeProvider.when('/', {templateUrl:'newsfeed.html',  reloadOnSearch: false});
+  $routeProvider.when('/MyFlat', {templateUrl:'myflat.html',  reloadOnSearch: false});
+  $routeProvider.when('/Accounts', {templateUrl:'accounts.html',  reloadOnSearch: false});
+  $routeProvider.when('/Chat', {templateUrl:'chat.html',  reloadOnSearch: false});
+  $routeProvider.when('/ToDo', {templateUrl:'todo.html',  reloadOnSearch: false});
+  $routeProvider.when('/Groceries', {templateUrl:'groceries.html',  reloadOnSearch: false});
+  $routeProvider.when('/Settings', {templateUrl:'settings.html',  reloadOnSearch: false});
 });
