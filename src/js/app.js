@@ -5,5 +5,5 @@ angular.module('Room8', [
 ])
 
 .config(function($routeProvider) {
-  $routeProvider.when('/', {templateUrl:'home.html',  reloadOnSearch: false});
+  $routeProvider.when('/', {templateUrl:'newsfeed.html',  reloadOnSearch: false});
 });
