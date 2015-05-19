@@ -4,6 +4,7 @@
         "uninstalled": []
     },
     "config_munge": {
+<<<<<<< HEAD
         "files": {
             "res/xml/config.xml": {
                 "parents": {
@@ -22,5 +23,10 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
+=======
+        "files": {}
+    },
+    "installed_plugins": {},
+>>>>>>> origin/master
     "dependent_plugins": {}
 }
