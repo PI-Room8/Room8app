@@ -82,8 +82,6 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <engine name="ios" spec="^3.8.0" />
-<<<<<<< HEAD
     <engine name="android" spec="^4.0.0" />
-=======
->>>>>>> origin/master
+
 </widget>
