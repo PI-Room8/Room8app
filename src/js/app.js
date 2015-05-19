@@ -5,6 +5,10 @@ angular.module('Room8', [
 ])
 
 .config(function($routeProvider) {
+<<<<<<< HEAD
+  $routeProvider.when('/', {templateUrl:'home.html',  reloadOnSearch: false});
+});
+=======
   $routeProvider.when('/', {templateUrl:'newsfeed.html',  reloadOnSearch: false});
   $routeProvider.when('/MyFlat', {templateUrl:'myflat.html',  reloadOnSearch: false});
   $routeProvider.when('/Accounts', {templateUrl:'accounts.html',  reloadOnSearch: false});
@@ -13,3 +17,4 @@ angular.module('Room8', [
   $routeProvider.when('/Groceries', {templateUrl:'groceries.html',  reloadOnSearch: false});
   $routeProvider.when('/Settings', {templateUrl:'settings.html',  reloadOnSearch: false});
 });
+>>>>>>> origin/master

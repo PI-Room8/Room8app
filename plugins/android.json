@@ -4,8 +4,29 @@
         "uninstalled": []
     },
     "config_munge": {
+<<<<<<< HEAD
+        "files": {
+            "res/xml/config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Whitelist\"><param name=\"android-package\" value=\"org.apache.cordova.whitelist.WhitelistPlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        }
+    },
+=======
         "files": {}
     },
     "installed_plugins": {},
+>>>>>>> origin/master
     "dependent_plugins": {}
 }
