@@ -1,0 +1,17 @@
+/*
+design.css
+---------
+*/
+/* Eléments principaux de la page */
+
+body
+{
+	text-align: justify;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+#bloc_page
+{
+    width: 900px;
+    margin: auto;
+}
