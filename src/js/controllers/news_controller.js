@@ -14,18 +14,18 @@ angular.module('Room8.controllers.News', [])
         alert(data, status, headers, config);
     });
 
-    /*var id_coloc = 1;
-    var news = 'Elle me trouvait le plus beau de saint jean';
+    /* Test de POST fonctionnel
+    var id_coloc = 1;
+    var news = 'Yolo';
 
     $http({
         method: 'POST',
-        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addNews?news=' + news + '&id_coloc=' + id_coloc,
+        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addNews?text=' + news + '&id_coloc=' + id_coloc,
         headers: {'Accept': 'application/json'}
      }).success(function(data){
          alert('Well done');
     }).error(function(data, status, headers, config){
         alert(data, status, headers, config);
     });*/
-
   
 });
