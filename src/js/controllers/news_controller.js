@@ -2,10 +2,11 @@ angular.module('Room8.controllers.News', [])
 
 .controller('NewsController', function($scope,$http){
 
+    var id = 1;
+
 	$http({
         method: 'GET',
-        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllNews?id=1',
-        //params: {'id=1'},
+        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllNews?id=' + id,
         headers: {'Accept': 'application/json'}
      }).success(function(data){
          $scope.Liste = data;
