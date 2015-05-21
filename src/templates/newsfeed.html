@@ -11,9 +11,12 @@
 	<section class="section container-fluid">
 		<h1 class="page-header">What's up in your flat ?</h1> 
 		<div ng-controller="NewsController">
-			<ul>
-				<li ng-repeat="new in Liste">{{new.text}}, {{new.date}}</li>
-			</ul>
+			<table class="table-striped">
+				<tr ng-repeat="new in Liste">
+					<td>{{new.text}}</br>
+					{{new.date}}</td>
+				</tr>
+			</table>
 			
 		</div>
 	</section>
