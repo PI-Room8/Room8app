@@ -130,6 +130,11 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 
+# Compilés platforms
+platforms
+
+# Compilés www
+www
 
 ### Bower ###
 bower_components
