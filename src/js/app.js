@@ -2,7 +2,8 @@ angular.module('Room8', [
   'ngRoute',
   'mobile-angular-ui',
   'Room8.controllers.Main',
-  'Room8.controllers.News'
+  'Room8.controllers.News',
+  'Room8.controllers.Registration'
 ])
 
 .config(function($routeProvider) {
