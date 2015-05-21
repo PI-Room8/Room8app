@@ -11,7 +11,10 @@
 	<section class="section container-fluid">
 		<h1 class="page-header">What's up in your flat ?</h1> 
 		<div ng-controller="NewsController">
-			{{myScopeData}}
+			<ul>
+				<li ng-repeat="new in Liste">{{new.text}} </li>
+			</ul>
+			
 		</div>
 	</section>
 
