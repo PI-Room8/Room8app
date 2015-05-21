@@ -9,14 +9,16 @@
 
 	<!--Contenu de la page/onglet à rajouter-->
 	<section class="section container-fluid">
-<<<<<<< HEAD
-		<h1 class="page-header">Welcome to Room8</h1> 
-		<div ng-controller="MainController">
-			{{myScopeData}}
+		<h1 class="page-header">What's up in your flat ?</h1> 
+		<div ng-controller="NewsController">
+			<table class="table-striped">
+				<tr ng-repeat="new in Liste">
+					<td>{{new.text}}</br>
+					{{new.date}}</td>
+				</tr>
+			</table>
+			
 		</div>
-=======
-		<h1 class="page-header">NewsFeed Page</h1> 
->>>>>>> master
 	</section>
 
 </html>
