@@ -8,8 +8,12 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
     <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
-    <link rel="stylesheet" href="css/app.min.css" />
-    <link rel="stylesheet" href="css/responsive.min.css" />
+
+
+    <link rel="stylesheet" href="css/app.min.css" /> 
+    <link rel="stylesheet" href="#/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="#/src/static/design.css" />
+
     <script src="http://localhost:8001/target/target-script-min.js"></script>
     <script src="cordova.js"></script>
     <script src="js/app.min.js"></script>
@@ -27,7 +31,9 @@
 
       <div class="navbar navbar-app navbar-absolute-top">
         <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
-          Mobile Angular UI
+
+          Room8
+
         </div>
         <div class="btn-group pull-left">
           <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
@@ -61,3 +67,4 @@
     <div ui-yield-to="modals"></div>
   </body>
 </html>
+
