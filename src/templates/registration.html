@@ -7,12 +7,13 @@
   </head>
     
   <body>
-    <div id="bloc_page" >
-      <div class="registration">
-        <h1>Welcome to Room8 !</h1>
-        <h2>Are you new ? Sign up then!</h2>
-      </div>	
-			<div ng-controller="RegistrationController">
+    <div ng-controller="RegistrationController">
+      <div id="bloc_page" >
+        
+        <div class="registration">
+          <h1>Welcome to Room8 !</h1>
+          <h2>Are you new ? Sign up then!</h2>
+        </div>	
         <form  method="POST" name="SignUpForm" class="new" role="form" >
 	    	  <p>
 				<label for="Pseudo">Name :</label>
@@ -36,26 +37,25 @@
 					<pre>User = "{{User | json}}"</pre>
 	   			</p>
 				</form>
-			</div>
 
-      <div class="login">
-        <h1>Already member ? Sign in!</h1>
-      </div>  
-					
-			<form method="POST" action="" class="signin" role="form">
-        <p>
-          <label for="Mail">Mail :</label>
-          <input type="email" name="mail" id="mail" placeholder="" size="30" maxlength="10" required/>
-          </br>
+        <div class="login">
+          <h1>Already member ? Sign in!</h1>
+        </div>  	
+			  <form method="POST" action="" class="signin" role="form">
+          <p>
+            <label for="Mail">Mail :</label>
+            <input type="email" name="mail" id="mail" placeholder="" size="30" maxlength="10" required/>
+            </br>
 
-          <label for="pass">Password :</label>
-          <input type="password" name="pass" id="pass" placeholder="Password" required/>
+            <label for="pass">Password :</label>
+            <input type="password" name="pass" id="pass" placeholder="Password" required/>
 
-          <input type="submit" value="Sign in" />
-        </p>
-      </form>
-            
-    </div>
-        
+            <input type="submit" value="Sign in" />
+          </p>
+        </form>
+
+      </div>
+    </div>    
   </body>
+
 </html>
