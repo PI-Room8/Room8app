@@ -9,9 +9,10 @@ angular.module('Room8.controllers.Registration', [])
 			headers: {'Accept': 'application/text'}
 		}).success(function(data){
 			alert(data);
+			$location.path('/');
+			$scope.$apply();
 		}).error(function(data){
 			alert(data);
-		$location.path('/');
 		});
 	}
 });
