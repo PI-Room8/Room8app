@@ -1,6 +1,6 @@
 angular.module('Room8.controllers.Registration', [])
 
-.controller('RegistrationController', function($scope,$http){
+.controller('RegistrationController', function($scope,$http, $location){
 
 	$scope.update = function(dataUser) {
 		$http({
