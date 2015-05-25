@@ -11,7 +11,7 @@ angular.module('Room8.controllers.Registration', [])
 			alert(data);
 		}).error(function(data){
 			alert(data);
-		//$location.href = '/Newsfeed';
+		$location.path('/');
 		});
 	}
 });
