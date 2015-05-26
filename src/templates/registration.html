@@ -1,5 +1,9 @@
- <section class="section container-fluid" align="center">
-    <div class="container-fluid" ng-controller="RegistrationController">
+ <section class="section container-fluid" align="center" >
+	
+	<div class="scrollable" ng-controller="RegistrationController">
+		<div class="scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")'  overflow:auto>
+    <div class="container-fluid" >
+		
       <h1 class="form-signin-heading">Welcome to Room8 !</h1>
       <p class="form-signin-heading">Are you new ? Sign up then!</p>
 
@@ -24,7 +28,7 @@
             <pre>User = "{{User | json}}"</pre>
 
         </br>
-        <button ng-click="update(dataUser)" class="btn btn-lg btn-primary btn-block" type="submit" >Sign in</button>
+        <button ng-click="update(dataUser)" class="btn btn-lg btn-primary btn-block" type="submit" >Sign up</button>
       </form>
 
     </div> 
@@ -37,8 +41,11 @@
 		  <label for="inputPassword" class="sr-only">Password</label>
 		  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
       </br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Connect</button> 
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> 
+      </div>
+      </div>
     </div>
+    <!--</div>-->
   </section>
 
 

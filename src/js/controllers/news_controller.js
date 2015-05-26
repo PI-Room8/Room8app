@@ -1,4 +1,6 @@
-angular.module('Room8.controllers.News', [])
+angular.module('Room8.controllers.News', [
+	'mobile-angular-ui.components.scrollable'
+])
 
 .controller('NewsController', function($scope,$http){
 
@@ -13,7 +15,7 @@ angular.module('Room8.controllers.News', [])
     }).error(function(data, status, headers, config){
         alert(data, status, headers, config);
     });
-
+	//scrollableContentController.scrollTo($scope.Liste);
     /* Test de POST fonctionnel
     var id_coloc = 1;
     var news = 'Yolo';
