@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "devDependencies": {
     "gulp": "^3.8.1",
-
-    "gulp-angular-filesort": "^1.0.1",
+    "gulp-angular-filesort": "^1.1.1",
     "gulp-angular-templatecache": "^1.2.1",
     "gulp-concat": "^2.5.2",
     "gulp-connect": "^2.0.5",
@@ -22,10 +21,9 @@
     "gulp-sass": "^2.0.1",
     "gulp-sourcemaps": "^1.1.0",
     "gulp-uglify": "^1.2.0",
-    "imagemin-pngcrush": "^0.1.0",
+    "imagemin-pngcrush": "^4.1.0",
     "run-sequence": "^0.3.6",
     "streamqueue": "^0.1.1",
     "weinre": "^2.0.0-pre-I0Z7U9OV"
   }
 }
-
