@@ -1,4 +1,6 @@
-angular.module('Room8.controllers.News', [])
+angular.module('Room8.controllers.News', [
+	'mobile-angular-ui.components.scrollable'
+])
 
 .controller('NewsController', function($scope,$http){
 
