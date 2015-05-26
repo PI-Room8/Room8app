@@ -1,8 +1,36 @@
-<!DOCTYPE html>
-<html>
-	<!--Contenu de la page/onglet à rajouter-->
-	<section class="section container-fluid">
-		<h1 class="page-header">Settings page</h1>  
-	</section>
+<section class="section container-fluid" align="center">
 
-</html>
+     <div class="container-fluid" ng-controller="SettingController">
+      <h1>Your Profile</h1>
+
+
+      <form class="form-signin" method="POST" name="ChangeProfile" role="profile">
+        <label for="pseudo" class="sr-only">Pseudo</label>
+        <input type="text" id="pseudo" class="form-control" size="30" maxlength="30" ng-model="user.nom_utilisateur" required>
+        </br>
+        <label for="mail" class="sr-only">Email address</label>
+        <input type="email" class="form-control" id="mail" size="30" maxlength="50" ng-model="user.adresse_mail"required>
+
+        <div ng-show="SignUpForm.$submitted || form.mail.$touched">
+              <span ng-show="SignUpForm.mail.$error.required">Tell us your email.</span>
+              <span ng-show="SignUPform.mail.$error.email">This is not a valid email.</span>
+        </div>
+
+        </br>
+        <label for="pass" class="sr-only">Password</label>
+        <input type="password" id="mot_de_passe" class="form-control" ng-model="user.mot_de_passe" required>
+        </br>
+
+        <pre>form= "{{user | json}}"</pre>
+        
+
+        </br>
+        <button ng-click="update(user)" class="btn btn-lg btn-primary btn-block" type="submit" >Change</button>
+    	</br>
+        <button ng-click="refresh()" type="submit" class="btn btn-lg btn-primary btn-block">Cancel</button>
+      </form>
+
+    </div> 
+    </br>
+
+</section>

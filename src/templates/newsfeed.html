@@ -1,17 +1,3 @@
-<!--<section class="section container-fluid">
-	<h1 class="page-header">What's up in your flat ?</h1> 
-		<div ng-controller="NewsController">
-			<table class="table-striped">
-				<tr ng-repeat="new in Liste">
-					<td>{{new.text}}</br>
-					{{new.date}}</td>
-				</tr>
-			</table>
-			
-		</div>
-	</section>
--->
-
 <section class="section container-fluid">
     <div class="container-fluid">
       <div class="row">
@@ -26,15 +12,17 @@
                   <th>News</th>
                 </tr>
               </thead>
-              <tbody>
-               
+              <tbody> 
 					<div class="scrollable-content section" ui-scroll-bottom="loadMore()">
 						<tr ng-repeat="new in Liste">
 							<td>{{new.date}}</td>
 							<td>{{new.text}}</td>
 						</tr>
 					</div>
-				
+                <tr ng-repeat="new in Liste">
+					<td>{{new.date}}</td>
+					<td>{{new.text}}</td>
+				  </tr>
               </tbody>
             </table>
           </div>

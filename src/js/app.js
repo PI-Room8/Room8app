@@ -4,6 +4,7 @@ angular.module('Room8', [
   'Room8.controllers.Main',
   'Room8.controllers.News',
   'Room8.controllers.Registration',
+  'Room8.controllers.Settings',
   'mobile-angular-ui.components.scrollable' 
 ])
 
