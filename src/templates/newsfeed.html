@@ -13,33 +13,36 @@
 -->
 
 <section class="section container-fluid">
+	
     <div class="container-fluid">
       <div class="row">
-  
-
           <h2 class="sub-header">News Feed</h2>
           <div class="table-responsive" ng-controller="NewsController">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>News</th>
-                </tr>
-              </thead>
-              <tbody>
-               
-					<div class="scrollable-content" ui-scroll-bottom="loadMore()" overflow:auto>
-						<tr ng-repeat="new in Liste">
-							<td>{{new.date}}</td>
-							<td>{{new.text}}</td>
-						</tr>
+				<div class="scrollable">
+					<div class="scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" overflow:auto>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>News</th>
+								</tr>
+							</thead>
+							<tbody>
+              
+								<tr ng-repeat="new in Liste">
+									<td>{{new.date}}</td>
+									<td>{{new.text}}</td>
+								</tr>
+					
+							</tbody>
+						</table>
 					</div>
-				
-              </tbody>
-            </table>
-          </div>
-        </div>
-      
+				</div>
+			</div>
+		</div>
+	</div>
+	
+     
     </section>
 
    

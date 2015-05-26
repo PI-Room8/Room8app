@@ -1,4 +1,7 @@
-angular.module('Room8.controllers.Registration', [])
+angular.module('Room8.controllers.Registration', [
+	'mobile-angular-ui.components.scrollable',
+	
+])
 
 .controller('RegistrationController', function($scope,$http, $location){
 
