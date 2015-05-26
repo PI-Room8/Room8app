@@ -4,13 +4,9 @@ angular.module('Room8', [
   'Room8.controllers.Main',
   'Room8.controllers.News',
   'Room8.controllers.Registration',
-<<<<<<< HEAD
   'Room8.controllers.Settings',
-  'mobile-angular-ui.components.scrollable' 
-=======
   'mobile-angular-ui.components.scrollable',
   'mobile-angular-ui.core.sharedState' 
->>>>>>> origin/master
 ])
 
 .config(function($routeProvider) {
