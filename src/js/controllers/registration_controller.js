@@ -37,8 +37,11 @@ angular.module('Room8.controllers.Registration', [
 			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+User.pseudo,
 			headers:{'Accept':'application/json'}
 		}).success(function(data){
+			alert(data);
+		}).error(function(data){
+			alert(data);
 		
-		})
+		});
 	
 	}
 });
