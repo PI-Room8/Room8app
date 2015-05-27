@@ -6,7 +6,7 @@ angular.module('Room8.controllers.News', [
 
     $http({
         method: 'GET',
-        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUserFlat?name=' + $rootScope.Username ,    /* To Complete */
+        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUserFlat?name=' + $rootScope.UserName ,    /* To Complete */
         headers: {'Accept': 'application/json'}
      }).success(function(data){
          $rootScope.FlatId = data;
