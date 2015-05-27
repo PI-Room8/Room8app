@@ -20,5 +20,11 @@ angular.module('Room8', [
   $routeProvider.when('/Registration', {templateUrl:'registration.html',  reloadOnSearch: false});
   $routeProvider.when('/Groceries', {templateUrl:'groceries.html',  reloadOnSearch: false});
   $routeProvider.when('/Settings', {templateUrl:'settings.html',  reloadOnSearch: false});
+
+})
+
+.run(function($rootScope) {
+    $rootScope.Username = 'Coloc1'; //Remove Coloc1
+    $rootScope.FlatId = 1; //Remove 1
 });
 
