@@ -10,7 +10,7 @@ angular.module('Room8.controllers.Registration', [
 	
 	$scope.update = function(dataUser) {
 		if(dataUser.password==dataUser.confirmPassword){	
-			$rootScope.Username = dataUser.nom;
+			$rootScope.UserName = dataUser.nom;
 
 			$http({
 				method:'POST', 	
@@ -31,6 +31,7 @@ angular.module('Room8.controllers.Registration', [
 	}
 	
 	$scope.connect=function(User){
+
 		$http({
 			method:'POST',
 			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+User.pseudo,
