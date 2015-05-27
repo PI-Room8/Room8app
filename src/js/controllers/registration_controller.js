@@ -13,7 +13,7 @@ angular.module('Room8.controllers.Registration', [
 			$rootScope.Username = dataUser.nom;
 
 			$http({
-				method:'POST', 	method:'POST',
+				method:'POST', 	
 				url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addUser?nom='+ dataUser.nom + '&mdp=' +dataUser.password + '&mail=' + dataUser.mail,
 				headers: {'Accept': 'application/json'}
 			}).success(function(data){
@@ -31,7 +31,9 @@ angular.module('Room8.controllers.Registration', [
 	}
 	
 	$scope.connect=function(User){
-	
+		$http({
+			method:'POST',
+			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='
 	
 	}
 });
