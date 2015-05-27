@@ -17,7 +17,13 @@
 					</div>
 					</br>
 					<label for="pass" class="sr-only">Password</label>
-					<input type="password" id="pass" class="form-control" placeholder="Password" ng-model="dataUser.password" required>
+					<input type="password" id="pass" class="form-control" placeholder="Password" ng-model="dataUser.password" name="password"  required>
+					</br>
+					<label for="pass" class="sr-only">Confirm Password</label>
+					
+					<input type="password" id="pass" class="form-control" placeholder="Confirm your password" ng-model="dataUser.confirmPassword" data-match="dataUser.password"  required>
+					<!--<div data-ng-show="dataUser.confirmPassword.$error.match">Passwords do not match!</div>-->
+					</br>
 					<button ng-click="update(dataUser)" class="btn btn-lg btn-primary btn-block" type="submit" >Sign up</button>
 				</form>
 			</div> 
@@ -25,12 +31,12 @@
 			<div class="container">
 				<p class="form-signin-heading">It is not your first time here ! Sign in !</p>
 				<label for="inputPseudo" class="sr-only">Pseudo</label>
-				<input type="text" id="inputPseudo" class="form-control" placeholder="Pseudo" required>
+				<input type="text" id="inputPseudo" class="form-control" placeholder="Pseudo"  ng-model="User.pseudo"required>
 				</br>
 			    <label for="inputPassword" class="sr-only">Password</label>
-				<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				<input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="User.password" required>
 				</br>
-				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> 
+				<button g-click="connect(User)" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> 
 			</div>
 		</div>
 	</div>
