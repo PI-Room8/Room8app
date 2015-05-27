@@ -33,7 +33,11 @@ angular.module('Room8.controllers.Registration', [
 	$scope.connect=function(User){
 		$http({
 			method:'POST',
-			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='
+			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+User.pseudo,
+			headers:{'Accept':'application/json'}
+		}).success(function(data){
+		
+		})
 	
 	}
 });
