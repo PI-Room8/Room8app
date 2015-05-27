@@ -4,20 +4,16 @@ angular.module('Room8.controllers.News', [
 
 .controller('NewsController', function($scope,$http, $rootScope){
 
-    var FlatId;
-    console.log($rootScope.Username);
-
     $http({
         method: 'GET',
         url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUserFlat?name=' + $rootScope.Username ,    /* To Complete */
         headers: {'Accept': 'application/json'}
      }).success(function(data){
-         FlatId = data;
-         alert(FlatId);
+         $rootScope.FlatId = data;
 
         $http({
             method: 'GET',
-            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllNews?id=' + FlatId,
+            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllNews?id=' + $rootScope.FlatId,
             headers: {'Accept': 'application/json'}
         }).success(function(data){
             $scope.Liste = data;
