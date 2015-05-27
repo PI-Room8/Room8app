@@ -25,7 +25,7 @@ angular.module('Room8.controllers.Registration', [
 				alert(data);
 			});
 		}else{
-			alert("Pleace confirm your password!"); 
+			alert("Please confirm your password!"); 
 			$route.reload();
 		}
 	}
@@ -33,9 +33,9 @@ angular.module('Room8.controllers.Registration', [
 	$scope.connect=function(User){
 
 		$http({
-			method:'POST',
+			method:'GET',
 			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+User.pseudo,
-			headers:{'Accept':'application/json'}
+			headers:{'Accept':'application/text'}
 		}).success(function(data){
 			alert(data);
 		}).error(function(data){
