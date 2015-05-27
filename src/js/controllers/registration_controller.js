@@ -8,7 +8,7 @@ angular.module('Room8.controllers.Registration', [
 
 .controller('RegistrationController', function($scope,$http, $location,$route, $rootScope){
 	
-	$scope.update = function(dataUser) {
+	$scope.create = function(dataUser) {
 		if(dataUser.password==dataUser.confirmPassword){	
 			$rootScope.UserName = dataUser.nom;
 
