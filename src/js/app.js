@@ -1,9 +1,11 @@
 angular.module('Room8', [
   'ngRoute',
   'mobile-angular-ui',
+  'Room8.services.Main',
   'Room8.controllers.Main',
   'Room8.controllers.News',
   'Room8.controllers.Registration',
+  'Room8.controllers.Settings',
   'mobile-angular-ui.components.scrollable',
   'mobile-angular-ui.core.sharedState' 
 ])
