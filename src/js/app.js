@@ -1,7 +1,6 @@
 angular.module('Room8', [
   'ngRoute',
   'mobile-angular-ui',
-  'Room8.services.Main',
   'Room8.controllers.Main',
   'Room8.controllers.News',
   'Room8.controllers.Registration',
@@ -20,5 +19,10 @@ angular.module('Room8', [
   $routeProvider.when('/Registration', {templateUrl:'registration.html',  reloadOnSearch: false});
   $routeProvider.when('/Groceries', {templateUrl:'groceries.html',  reloadOnSearch: false});
   $routeProvider.when('/Settings', {templateUrl:'settings.html',  reloadOnSearch: false});
+
+})
+
+.run(function($rootScope) {
+    $rootScope.Username = 'Coloc1';
 });
 
