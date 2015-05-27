@@ -24,7 +24,7 @@ angular.module('Room8', [
 })
 
 .run(function($rootScope) {
-    $rootScope.UserId = '';
+    $rootScope.UserId = '1'; //Remove 1
     $rootScope.UserName = 'Coloc1'; //Remove Coloc1
     $rootScope.PassWord = '';
     $rootScope.Mail = '';
