@@ -1,52 +1,40 @@
- <section class="section container-fluid" align="center" >
-	
+<section class="section container-fluid" align="center" >
 	<div class="scrollable" ng-controller="RegistrationController">
 		<div class="scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")'  overflow:auto>
-    <div class="container-fluid" >
-		
-      <h1 class="form-signin-heading">Welcome to Room8 !</h1>
-      <p class="form-signin-heading">Are you new ? Sign up then!</p>
+			<div class="container-fluid" >	
+				<h1 class="form-signin-heading">Welcome to Room8 !</h1>
+				<p class="form-signin-heading">Are you new ? Sign up then!</p>
 
-      <form class="form-signin" method="POST" name="SignUpForm" role="form">
-        <label for="pseudo" class="sr-only">Pseudo</label>
-        <input type="text" id="pseudo" class="form-control" placeholder="Pseudo" size="30" maxlength="30" ng-model="dataUser.nom" required autofocus>
-        </br>
-        <label for="mail" class="sr-only">Email address</label>
-        <input type="email" class="form-control" id="mail" placeholder="flatmate@room8.com" size="30" maxlength="50" ng-model="dataUser.mail"required>
-
-        <div ng-show="SignUpForm.$submitted || form.mail.$touched">
-              <span ng-show="SignUpForm.mail.$error.required">Tell us your email.</span>
-              <span ng-show="SignUPform.mail.$error.email">This is not a valid email.</span>
-        </div>
-
-        </br>
-        <label for="pass" class="sr-only">Password</label>
-        <input type="password" id="pass" class="form-control" placeholder="Password" ng-model="dataUser.password" required>
-        </br>
-
-        <pre>form= "{{dataUser | json}}"</pre>
-
-        </br>
-        <button ng-click="update(dataUser)" class="btn btn-lg btn-primary btn-block" type="submit" >Sign up</button>
-
-      </form>
-
-    </div> 
-    </br>
-    <div class="container">
-      <p class="form-signin-heading">It is not your first time here ! Sign in !</p>
-      <label for="inputPseudo" class="sr-only">Pseudo</label>
-      <input type="text" id="inputPseudo" class="form-control" placeholder="Pseudo" required>
-      </br>
-		  <label for="inputPassword" class="sr-only">Password</label>
-		  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      </br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> 
-      </div>
-    </div>
-
-  </div>
-  </section>
+				<form class="form-signin" method="POST" name="SignUpForm" role="form">
+					<label for="pseudo" class="sr-only">Pseudo</label>
+					<input type="text" id="pseudo" class="form-control" placeholder="Pseudo" size="30" maxlength="30" ng-model="dataUser.nom" required autofocus>
+					</br>
+					<label for="mail" class="sr-only">Email address</label>
+					<input type="email" class="form-control" id="mail" placeholder="flatmate@room8.com" size="30" maxlength="50" ng-model="dataUser.mail"required>
+					<div ng-show="SignUpForm.$submitted || form.mail.$touched">
+						<span ng-show="SignUpForm.mail.$error.required">Tell us your email.</span>
+						<span ng-show="SignUPform.mail.$error.email">This is not a valid email.</span>
+					</div>
+					</br>
+					<label for="pass" class="sr-only">Password</label>
+					<input type="password" id="pass" class="form-control" placeholder="Password" ng-model="dataUser.password" required>
+					<button ng-click="update(dataUser)" class="btn btn-lg btn-primary btn-block" type="submit" >Sign up</button>
+				</form>
+			</div> 
+			</br>
+			<div class="container">
+				<p class="form-signin-heading">It is not your first time here ! Sign in !</p>
+				<label for="inputPseudo" class="sr-only">Pseudo</label>
+				<input type="text" id="inputPseudo" class="form-control" placeholder="Pseudo" required>
+				</br>
+			    <label for="inputPassword" class="sr-only">Password</label>
+				<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+				</br>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> 
+			</div>
+		</div>
+	</div>
+ </section>
 
 
 
