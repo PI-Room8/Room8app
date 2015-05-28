@@ -1,4 +1,4 @@
-<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" overflow:auto>
+<section class="section container-fluid scrollable scrollable-content" ng-controller="RegistrationController"ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" overflow:auto>
 	
 			<div class="container-fluid" >	
 				<h1 class="form-signin-heading">Welcome to Room8 !</h1>
@@ -29,13 +29,15 @@
 			</br>
 			<div class="container">
 				<p class="form-signin-heading">It is not your first time here ! Sign in !</p>
-				<label for="inputPseudo" class="sr-only">Pseudo</label>
-				<input type="text" id="inputPseudo" class="form-control" placeholder="Pseudo"  ng-model="User.pseudo"required>
-				</br>
-			    <label for="inputPassword" class="sr-only">Password</label>
-				<input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="User.password" required>
-				</br>
-				<button g-click="connect(User)" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button> 
+				<form class="form-signin" method="GET" name="SignInForm" role="form">
+					<label for="inputPseudo" class="sr-only">Pseudo</label>
+					<input type="text" id="inputPseudo" class="form-control" placeholder="Pseudo"  ng-model="User.pseudo"required>
+					</br>
+				    <label for="inputPassword" class="sr-only">Password</label>
+					<input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="User.password" required>
+					</br>
+					<button ng-click="connect(User)" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+				</form> 
 			</div>
 		</div>
 	</div>

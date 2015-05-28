@@ -3,14 +3,12 @@ angular.module('Room8.controllers.Registration', [
 	//'validation.match'
 	
 ])
- 
-
 
 .controller('RegistrationController', function($scope,$http, $location,$route, $rootScope){
 	
+
 	$scope.create = function(dataUser) {
-		if(dataUser.password==dataUser.confirmPassword){	
-			$rootScope.UserName = dataUser.nom;
+		if(dataUser.password==dataUser.confirmPassword){
 
 			$http({
 				method:'POST', 	
@@ -19,10 +17,21 @@ angular.module('Room8.controllers.Registration', [
 			}).success(function(data){
 				if(data==1){
             		alert('Your profile has been created');
-            		window.location.href="/#/Findflat"
-					
-					$location.path('/');
-					$scope.$apply();
+
+            		$http({
+            			method:'GET',
+            			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUser?name=' + dataUser.nom ,
+            			headers: {'Accept': 'application/json'}
+            		}).success(function(data2){	
+            			$rootScope.User=data2;
+            			console.log($rootScope.User);
+						$rootScope.Connected=true;
+						$location.path('/FindFlat').replace();
+						$scope.$apply();
+            		}).error(function(data2){
+						alert('Can\'t get User');
+					});
+
 				}else if(data==2){
            			alert('This pseudo is already being used');
            			window.location.reload();
@@ -32,12 +41,13 @@ angular.module('Room8.controllers.Registration', [
         		}else{
             		alert('Try Again, something is wrong');
             		window.location.reload();
-        		}}).error(function(data){
-					alert(data);
-				});
+        		}
+        	}).error(function(data, status,headers,config){
+				alert(data, status,headers,config);
+			});
 		}else{
 			alert("Please confirm your password!"); 
-			$route.reload();
+			window.location.reload();
 		}
 	}
 	
@@ -45,14 +55,37 @@ angular.module('Room8.controllers.Registration', [
 
 		$http({
 			method:'GET',
-			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+User.pseudo,
+			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+ User.pseudo,
 			headers:{'Accept':'application/text'}
 		}).success(function(data){
-			alert(data);
-		}).error(function(data){
-			alert(data);
+			if(data==""){
+				alert("Error : Your pseudo and your password don't match");
+			}
+			else if(data==User.password){
+				/*Update du user global ici*/
+				$http({
+            		method:'GET',
+            		url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUser?name=' + User.pseudo ,
+            		headers: {'Accept': 'application/json'}
+            	}).success(function(data2){	
+            		$rootScope.User=data2;
+            		console.log($rootScope.User);
+					alert("Successful!");
+					$rootScope.Connected=true;
+					$location.path('/').replace();
+					$scope.$apply();
+            	}).error(function(data2){
+					alert('Can\'t get User');
+				});	
+			}
+			else{
+				alert("Error : Your pseudo and your password don't match");
+			}	
+		}).error(function(data, status,headers,config){
+			alert(data, status,headers,config);
 		
 		});
+	$scope.connected=$rootScope.connected;
 	
 	}
 });
