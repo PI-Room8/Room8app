@@ -18,10 +18,12 @@ angular.module('Room8.controllers.Registration', [
 				headers: {'Accept': 'application/json'}
 			}).success(function(data){
 				if(data==1){
-            		alert('Your profile has been created');
-            		window.location.reload();
-					
-					$location.path('/');
+            		alert('Your profile has been created');	
+            		/*GET USER ICI*/
+            		
+            		/*           */
+            		$rootScope.Connected=true;
+					$location.path('/').replace();
 					$scope.$apply();
 				}else if(data==2){
            			alert('This pseudo is already being used');
