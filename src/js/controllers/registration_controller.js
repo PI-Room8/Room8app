@@ -54,7 +54,7 @@ angular.module('Room8.controllers.Registration', [
 				
 				/*Update du user global ici*/
 				
-				
+					
 				alert("Successful!");
 				$location.path('/');
 				$scope.$apply();
