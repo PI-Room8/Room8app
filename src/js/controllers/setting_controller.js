@@ -2,23 +2,17 @@ angular.module('Room8.controllers.Settings', [])
 
 .controller('SettingController', function($scope,$http,$location,$rootScope){
 
-    $scope.user = {
-        name: $rootScope.UserName,
-        password: $rootScope.PassWord,
-        mail: $rootScope.Mail
-    }
-
     if($rootScope.Connected==true){
         $scope.update = function(user) {
             $http({
                 method: 'POST',
-                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/updateUser?id=' + $rootScope.UserId + '&nom=' + user.name  + '&mdp=' + user.password + '&mail=' + user.mail,
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/updateUser?id=' + $rootScope.User.id_colocation + '&nom=' + user.name  + '&mdp=' + user.password + '&mail=' + user.mail,
                 headers: {'Accept': 'application/json'}
             }).success(function(data){
                 if(data==1){
-                    $rootScope.UserName = user.name;
-                    $rootScope.PassWord = user.password;
-                    $rootScope.Mail = user.mail;
+                    $rootScope.User.nom_utilisateur = user.name;
+                    $rootScope.User.mot_de_passe = user.password;
+                    $rootScope.User.adresse_mail = user.mail;
                     alert('Your profile has been updated');
                     window.location.reload();
                 }

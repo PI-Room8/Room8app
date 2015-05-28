@@ -24,17 +24,14 @@ angular.module('Room8', [
 })
 
 .run(function($rootScope) {
-    $rootScope.UserId = '1'; //Remove 1
-    $rootScope.UserName; //Remove Coloc1
-    $rootScope.PassWord = '';
-    $rootScope.Mail = '';
-    $rootScope.FlatId = '1'; //Remove 1
+
     $rootScope.Connected= false;
-    $rootScope.User = {};
+    $rootScope.User = {}; //id_utilisateur, nom_utilisateur, mot_de_passe, adresse_mail, id_colocation
 
     $rootScope.updateUser = function(data) {
         $rootScope.User.push(data); 
         $rootScope.$apply();
+         
     }
 
 });
