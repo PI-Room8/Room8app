@@ -72,7 +72,7 @@ angular.module('Room8.controllers.Registration', [
             		console.log($rootScope.User);
 					alert("Successful!");
 					$rootScope.Connected=true;
-					$location.path('/').replace();
+					$location.path('/FindFlat').replace();
 					$scope.$apply();
             	}).error(function(data2){
 					alert('Can\'t get User');

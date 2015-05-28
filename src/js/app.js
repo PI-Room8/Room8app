@@ -22,7 +22,7 @@ angular.module('Room8', [
   $routeProvider.when('/Registration', {templateUrl:'registration.html',  reloadOnSearch: false});
   $routeProvider.when('/Groceries', {templateUrl:'groceries.html',  reloadOnSearch: false});
   $routeProvider.when('/Settings', {templateUrl:'settings.html',  reloadOnSearch: false});
-  $routeProvider.when('/Findflat', {templateUrl:'findflat.html',  reloadOnSearch: false});
+  $routeProvider.when('/FindFlat', {templateUrl:'findflat.html',  reloadOnSearch: false});
   $routeProvider.when('/Flatcreation', {templateUrl:'flatcreation.html',  reloadOnSearch: false});
 
 })
