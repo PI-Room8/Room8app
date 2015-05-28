@@ -29,5 +29,6 @@ angular.module('Room8', [
     $rootScope.PassWord = '';
     $rootScope.Mail = '';
     $rootScope.FlatId = 1; //Remove 1
+    $rootScope.Connected= false;
 });
 
