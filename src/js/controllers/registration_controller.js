@@ -32,12 +32,12 @@ angular.module('Room8.controllers.Registration', [
         		}else{
             		alert('Try Again, something is wrong');
             		window.location.reload();
-        		}}).error(function(data){
-					alert(data);
+        		}}).error(function(data, status,headers,config){
+					alert(data, status,headers,config);
 				});
 		}else{
 			alert("Please confirm your password!"); 
-			$route.reload();
+			window.location.reload();
 		}
 	}
 	
@@ -48,9 +48,22 @@ angular.module('Room8.controllers.Registration', [
 			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+User.pseudo,
 			headers:{'Accept':'application/text'}
 		}).success(function(data){
-			alert(data);
-		}).error(function(data){
-			alert(data);
+			if(data==""){
+				alert("Error : Your pseudo and your password don't match");
+			}else if(data==User.password){
+				
+				/*Update du user global ici*/
+				
+					
+				alert("Successful!");
+				$location.path('/');
+				$scope.$apply();
+			}else{
+				alert("Error : Your pseudo and your password don't match");
+			}
+			
+		}).error(function(data, status,headers,config){
+			alert(data, status,headers,config);
 		
 		});
 	
