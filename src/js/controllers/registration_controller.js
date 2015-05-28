@@ -26,7 +26,12 @@ angular.module('Room8.controllers.Registration', [
             			$rootScope.User=data2;
             			console.log($rootScope.User);
 						$rootScope.Connected=true;
-						$location.path('/FindFlat').replace();
+						if ($rootScope.User.id_colocation == 0){
+							$location.path('/FindFlat').replace();
+						}
+						else {
+							$location.path('/').replace();
+						}
 						$scope.$apply();
             		}).error(function(data2){
 						alert('Can\'t get User');
@@ -72,7 +77,13 @@ angular.module('Room8.controllers.Registration', [
             		console.log($rootScope.User);
 					alert("Successful!");
 					$rootScope.Connected=true;
-					$location.path('/FindFlat').replace();
+					if ($rootScope.User.id_colocation == 0){
+						$location.path('/FindFlat').replace();
+					}
+					else {
+						console.log($rootScope.User.id_colocation);
+						$location.path('/').replace();
+					}
 					$scope.$apply();
             	}).error(function(data2){
 					alert('Can\'t get User');
@@ -85,6 +96,7 @@ angular.module('Room8.controllers.Registration', [
 			alert(data, status,headers,config);
 		
 		});
+		
 	$scope.connected=$rootScope.connected;
 	
 	}

@@ -3,11 +3,11 @@ angular.module('Room8.controllers.Flatcreation', [
 	//'validation.match'
 	
 ])
- 
-
 
 .controller('FlatcreationController', function($scope,$http, $location,$route, $rootScope){
 	
+if($rootScope.Connected==true){
+
 	$scope.create = function(dataUser) {
 		if(dataUser.password==dataUser.confirmPassword){	
 			$rootScope.UserName = dataUser.nom;
@@ -19,9 +19,8 @@ angular.module('Room8.controllers.Flatcreation', [
 			}).success(function(data){
 				if(data==1){
             		alert('Your profile has been created');
-            		window.location.href="/#/findflat.html"
 					
-					$location.path('/');
+					$location.path('/').replace;
 					$scope.$apply();
 				}else if(data==2){
            			alert('This pseudo is already being used');
@@ -55,4 +54,6 @@ angular.module('Room8.controllers.Flatcreation', [
 		});
 	
 	}
+
+}else{$location.path('/Registration').replace();}
 });

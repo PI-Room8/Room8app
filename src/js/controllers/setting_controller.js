@@ -2,7 +2,7 @@ angular.module('Room8.controllers.Settings', [])
 
 .controller('SettingController', function($scope,$http,$location,$rootScope){
 
-    if($rootScope.Connected==true){
+    if($rootScope.Connected == true){
 
         $scope.User = $rootScope.User;
 
