@@ -25,10 +25,17 @@ angular.module('Room8', [
 
 .run(function($rootScope) {
     $rootScope.UserId = '1'; //Remove 1
-    $rootScope.UserName = 'Coloc1'; //Remove Coloc1
+    $rootScope.UserName; //Remove Coloc1
     $rootScope.PassWord = '';
     $rootScope.Mail = '';
-    $rootScope.FlatId = 1; //Remove 1
+    $rootScope.FlatId = '1'; //Remove 1
     $rootScope.Connected= false;
+    $rootScope.User = {};
+
+    $rootScope.updateUser = function(data) {
+        $rootScope.User.push(data); 
+        $rootScope.$apply();
+    }
+
 });
 

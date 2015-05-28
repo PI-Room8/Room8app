@@ -3,14 +3,12 @@ angular.module('Room8.controllers.Registration', [
 	//'validation.match'
 	
 ])
- 
-
 
 .controller('RegistrationController', function($scope,$http, $location,$route, $rootScope){
 	
+
 	$scope.create = function(dataUser) {
-		if(dataUser.password==dataUser.confirmPassword){	
-			$rootScope.UserName = dataUser.nom;
+		if(dataUser.password==dataUser.confirmPassword){
 
 			$http({
 				method:'POST', 	
@@ -18,13 +16,22 @@ angular.module('Room8.controllers.Registration', [
 				headers: {'Accept': 'application/json'}
 			}).success(function(data){
 				if(data==1){
-            		alert('Your profile has been created');	
-            		/*GET USER ICI*/
-            		
-            		/*           */
-            		$rootScope.Connected=true;
-					$location.path('/').replace();
-					$scope.$apply();
+            		alert('Your profile has been created');
+
+            		$http({
+            			method:'GET',
+            			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUser?name=' + dataUser.nom ,
+            			headers: {'Accept': 'application/json'}
+            		}).success(function(data2){	
+            			$rootScope.User=data2;
+            			console.log($rootScope.User);
+						$rootScope.Connected=true;
+						$location.path('/').replace();
+						$scope.$apply();
+            		}).error(function(data2){
+						alert('Can\'t get User');
+					});
+
 				}else if(data==2){
            			alert('This pseudo is already being used');
            			window.location.reload();
@@ -34,9 +41,10 @@ angular.module('Room8.controllers.Registration', [
         		}else{
             		alert('Try Again, something is wrong');
             		window.location.reload();
-        		}}).error(function(data, status,headers,config){
-					alert(data, status,headers,config);
-				});
+        		}
+        	}).error(function(data, status,headers,config){
+				alert(data, status,headers,config);
+			});
 		}else{
 			alert("Please confirm your password!"); 
 			window.location.reload();
@@ -47,7 +55,7 @@ angular.module('Room8.controllers.Registration', [
 
 		$http({
 			method:'GET',
-			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+User.pseudo,
+			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+ User.pseudo,
 			headers:{'Accept':'application/text'}
 		}).success(function(data){
 			if(data==""){
