@@ -1,4 +1,4 @@
-angular.module('Room8.controllers.Registration', [
+angular.module('Room8.controllers.Flatcreation', [
 	'mobile-angular-ui.components.scrollable',
 	//'validation.match'
 	
@@ -6,7 +6,7 @@ angular.module('Room8.controllers.Registration', [
  
 
 
-.controller('RegistrationController', function($scope,$http, $location,$route, $rootScope){
+.controller('FlatcreationController', function($scope,$http, $location,$route, $rootScope){
 	
 	$scope.create = function(dataUser) {
 		if(dataUser.password==dataUser.confirmPassword){	
@@ -19,7 +19,7 @@ angular.module('Room8.controllers.Registration', [
 			}).success(function(data){
 				if(data==1){
             		alert('Your profile has been created');
-            		window.location.href="/#/Findflat"
+            		window.location.href="/#/findflat.html"
 					
 					$location.path('/');
 					$scope.$apply();
