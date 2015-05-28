@@ -60,19 +60,27 @@ angular.module('Room8.controllers.Registration', [
 		}).success(function(data){
 			if(data==""){
 				alert("Error : Your pseudo and your password don't match");
-			}else if(data==User.password){
-				
-				/*Update du user global ici*/
-				
-					
-				alert("Successful!");
-				$rootScope.Connected=true;
-				$location.path('/').replace();
-				$scope.$apply();
-			}else{
-				alert("Error : Your pseudo and your password don't match");
 			}
-			
+			else if(data==User.password){
+				/*Update du user global ici*/
+				$http({
+            		method:'GET',
+            		url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUser?name=' + User.pseudo ,
+            		headers: {'Accept': 'application/json'}
+            	}).success(function(data2){	
+            		$rootScope.User=data2;
+            		console.log($rootScope.User);
+					alert("Successful!");
+					$rootScope.Connected=true;
+					$location.path('/').replace();
+					$scope.$apply();
+            	}).error(function(data2){
+					alert('Can\'t get User');
+				});	
+			}
+			else{
+				alert("Error : Your pseudo and your password don't match");
+			}	
 		}).error(function(data, status,headers,config){
 			alert(data, status,headers,config);
 		

@@ -6,10 +6,10 @@
 	
 		<form class="form-signin" method="POST" name="ChangeProfile" role="profile">
 			<label for="pseudo" class="sr-only">Pseudo</label>
-			<input type="text" id="pseudo" class="form-control" size="30" maxlength="30" ng-model="user.name" required>
+			<input type="text" id="pseudo" class="form-control" size="30" maxlength="30" ng-model="User.nom_utilisateur" required>
 			</br>
 			<label for="mail" class="sr-only">Email address</label>
-			<input type="email" class="form-control" id="mail" size="30" maxlength="50" ng-model="user.mail"required>
+			<input type="email" class="form-control" id="mail" size="30" maxlength="50" ng-model="User.adresse_mail"required>
 			
 			<div ng-show="SignUpForm.$submitted || form.mail.$touched">
 				<span ng-show="SignUpForm.mail.$error.required">Tell us your email.</span>
@@ -18,14 +18,14 @@
 			
 			</br>
 			<label for="pass" class="sr-only">Password</label>
-			<input type="password" id="mot_de_passe" class="form-control" ng-model="user.password" required>
+			<input type="password" id="mot_de_passe" class="form-control" ng-model="User.mot_de_passe" required>
 			</br>
 			
-			<pre>form= "{{user | json}}"</pre>
+			<pre>form= "{{User | json}}"</pre>
 			
 			
 			</br>
-			<button ng-click="update(user)" class="btn btn-lg btn-primary btn-block" type="submit" >Change</button>
+			<button ng-click="update(User)" class="btn btn-lg btn-primary btn-block" type="submit" >Change</button>
 			</br>
 			<button ng-click="refresh()" type="submit" class="btn btn-lg btn-primary btn-block">Cancel</button>
 			</br>
