@@ -56,7 +56,8 @@ angular.module('Room8.controllers.Registration', [
 				
 					
 				alert("Successful!");
-				$location.path('/');
+				$rootScope.Connected=true;
+				$location.path('/').replace();
 				$scope.$apply();
 			}else{
 				alert("Error : Your pseudo and your password don't match");
@@ -66,6 +67,7 @@ angular.module('Room8.controllers.Registration', [
 			alert(data, status,headers,config);
 		
 		});
+	$scope.connected=$rootScope.connected;
 	
 	}
 });
