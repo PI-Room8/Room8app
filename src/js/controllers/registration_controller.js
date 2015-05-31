@@ -100,4 +100,5 @@ angular.module('Room8.controllers.Registration', [
 	$scope.connected=$rootScope.connected;
 	
 	}
+
 });
