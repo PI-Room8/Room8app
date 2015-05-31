@@ -1,17 +1,9 @@
-/*
-design.css
----------
-*/
-/* Eléments principaux de la page */
+body {
 
-body
-{
-	text-align: justify;
-    font-family: "Trebuchet MS", sans-serif;
+  background-color: green;
+  padding-top: 50px;
 }
-
-#bloc_page
-{
-    width: 900px;
-    margin: auto;
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
 }

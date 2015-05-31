@@ -1,24 +1,33 @@
-<!DOCTYPE html>
-<html>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" href="../static/design.css" />
-        <title>Room8</title>
-    </head>
+<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" overflow:auto>
 
-	<!--Contenu de la page/onglet à rajouter-->
-	<section class="section container-fluid">
-		<h1 class="page-header">What's up in your flat ?</h1> 
-		<div ng-controller="NewsController">
-			<table class="table-striped">
-				<tr ng-repeat="new in Liste">
-					<td>{{new.text}}</br>
-					{{new.date}}</td>
-				</tr>
-			</table>
-			
-		</div>
-	</section>
+          <h2 class="sub-header">News Feed</h2>
+          <div class="table-responsive" ng-controller="NewsController">
 
-</html>
+					<table class="table" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
+
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>News</th>
+								</tr>
+							</thead>
+							<tbody>
+		  
+								<tr ng-repeat="new in Liste">
+									<td>{{new.date}}</td>
+									<td>{{new.text}}</td>
+								</tr>
+				
+							</tbody>
+					</table>
+			</div>
+
+
+</section>
+
+
+   
+ 
+
+

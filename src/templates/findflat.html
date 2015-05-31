@@ -1,0 +1,55 @@
+<section class="section container-fluid scrollable scrollable-content" ng-controller="FindflatController" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" overflow:auto>
+
+	<div class="container-fluid">
+		<h1>Reach a flat</h1>
+	
+	
+		<form class="form-signin" method="POST" name="ChangeProfile" role="profile">
+			<label for="pseudo" class="sr-only">Name of your flat ?</label>
+			<input type="text" id="flat" class="form-control" size="30" maxlength="30" placeholder="Find" ng-model="flat.nom" autofocus>
+		</br>
+			<button ng-click="search(flat)" type="submit" class="btn btn-lg btn-primary btn-block">Search</button>
+		</form>
+		</br>
+		
+        <div class="table-responsive">
+		<table class="table" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
+
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Number of flatmates</th>
+									<th>Rejoindre</th>
+								</tr>
+							</thead>
+							<tbody>
+		  
+								<tr ng-repeat="colocation in Liste">
+									<td>{{colocation.nom}}</td>
+									<td>{{colocation.nombre_colocataire}}</td>
+									<td>
+										<div class="input-group">
+            							
+           		
+                						<button ng-click="join(colocation)" class="btn btn-default btn-sm">
+                							<span class="glyphicon glyphicon-circle-arrow-right">
+											</span>
+                						</button>
+            							
+        								</div>
+   									</td>
+						
+								</tr>
+				
+							</tbody>
+					</table>
+		</div>
+
+		<pre>form= "{{flat | json}}"</pre>
+
+		<h2>You want to create a flat sharing ? It's here !</h2>
+		<button ng-click="create()" type="submit" class="btn btn-lg btn-primary btn-block">Create</button>
+	</div> 
+	</br>
+
+</section>
