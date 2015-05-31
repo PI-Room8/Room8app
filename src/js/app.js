@@ -8,6 +8,7 @@ angular.module('Room8', [
   'Room8.controllers.Settings',
   'Room8.controllers.Findflat',
   'Room8.controllers.Flatcreation',
+  'Room8.controllers.Myflat',
   'mobile-angular-ui.components.scrollable',
   'mobile-angular-ui.core.sharedState' 
 ])
