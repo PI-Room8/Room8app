@@ -6,7 +6,9 @@ angular.module('Room8.controllers.News', [
 	
     if(! $rootScope.Connected){
 		$location.path('/Registration').replace();
-	}else{
+	}else if($rootScope.User.id_colocation == 0){
+        $location.path('/FindFlat').replace();
+    }else{
         $http({
             method: 'GET',
             url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllNews?id=' + $rootScope.User.id_colocation,

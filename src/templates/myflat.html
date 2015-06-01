@@ -5,21 +5,33 @@
     <div class="table-responsive" ng-controller="MyflatController">
 
       <table class="table" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
-        <!--
         <thead>
           <tr>
-            <th>Date</th>
-            <th>News</th>
+            <th>Mates</th>
           </tr>
         </thead>
-        -->
         <tbody>
-          <tr ng-repeat="roomate in Liste">
-            <td>{{roomate.}}</td> <!-- TO COMPLETE --> 
+          <tr ng-repeat="roommate in Liste">
+           <td>{{roommate}}</td>
           </tr>
         </tbody>
       </table>
-    <button ng-click="add()" type="submit" class="btn btn-lg btn-primary btn-block">Add a new Roommate</button>
+
+      <h3> You want to add a new Roomate ?</h3>
+
+      <h4> Give us his/her email </h4>
+      <form class="form-signin" method="POST" name="AddMateForm" role="form">
+        <label for="mail" class="sr-only">Email address</label>
+        <p>  
+          <input type="email" class="form-control" id="mail" placeholder="flatmate@room8.com" size="30" maxlength="50" ng-model="mate.mail"required>
+          <div ng-show="AddMateForm.$submitted || form.mail.$touched">
+            <span ng-show="AddMateForm.mail.$error.required">Tell us his/her email.</span>
+            <span ng-show="AddMateform.mail.$error.email">This is not a valid email.</span>
+          </div>
+          <button ng-click="add(mate)" type="submit" class="btn btn-lg btn-primary btn-block">Add</button>
+        </p>
+      </form>
+
     </div>
 
 

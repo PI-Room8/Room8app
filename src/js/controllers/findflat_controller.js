@@ -8,7 +8,6 @@ angular.module('Room8.controllers.Findflat', [])
 	}else{
 		$scope.search = function(flat) {
 			if(flat.nom!=''){	
-
 				$http({
 					method:'GET', 	
 					url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getFlatName?name='+ flat.nom ,
