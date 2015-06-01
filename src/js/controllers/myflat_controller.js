@@ -1,12 +1,11 @@
 angular.module('Room8.controllers.Myflat', [
-	'mobile-angular-ui.components.scrollable'
+	'mobile-angular-ui.components.scrollable',
+	'Room8.controllers.Main'
 ])
 
 .controller('MyflatController', function($scope,$http, $rootScope, $location){
-	
-    if(! $rootScope.Connected){
-		$location.path('/Registration').replace();
-    }else if($rootScope.User.id_colocation == 0){
+	$rootScope.session();
+    if($rootScope.User.id_colocation == 0){
         $location.path('/FindFlat').replace();
 	}else{
         $http({

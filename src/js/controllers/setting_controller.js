@@ -1,7 +1,7 @@
-angular.module('Room8.controllers.Settings', [])
+angular.module('Room8.controllers.Settings', ['Room8.controllers.Main'])
 
 .controller('SettingController', function($scope,$http,$location,$rootScope){
-
+	$rootScope.session();
     if($rootScope.Connected == true){
 
         $scope.User = $rootScope.User;
@@ -36,7 +36,7 @@ angular.module('Room8.controllers.Settings', [])
                 alert(data, status, headers, config);
             });
         }
-    }else{$location.path('/Registration').replace();}
+    }
 
     $scope.refresh = function() {
         window.location.reload();

@@ -1,7 +1,7 @@
-angular.module('Room8.controllers.Findflat', [])
+angular.module('Room8.controllers.Findflat', ['Room8.controllers.Main'])
 
 .controller('FindflatController', function($scope,$http,$location,$rootScope){
-
+	$rootScope.session();
 	if(! $rootScope.Connected){
  		$location.path('/Registration').replace();
  	}else if($rootScope.User.id_colocation !=0){

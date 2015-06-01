@@ -1,18 +1,13 @@
 angular.module('Room8.controllers.News', [
-	'mobile-angular-ui.components.scrollable'
+	'mobile-angular-ui.components.scrollable',
+	'Room8.controllers.Main'
 ])
 
 .controller('NewsController', function($scope,$http, $rootScope, $location){
 	
 
-	$http({
-		method:'GET',
-		url:'http://room8env-vgps3jicwb.elasticbeanstalk.com/getSession',
-		headers: {'Accept': 'application/json'}
-	}).Success(function(data){
-		if(data!=""){
-			$rootScope.User=data;
-			$rootScope.Connected=true;
+	$rootScope.session();
+	if($rootScope.User.Connected){
 			if($rootScope.User.id_colocation==0){
 				$location.path('/FindFlat').replace();
 			}else{
@@ -26,11 +21,7 @@ angular.module('Room8.controllers.News', [
 		            alert('Can\'t get News');
 		        });
 			}
-		}else{
-			$location.path('/Registration').replace();
-			
-		}
-	}).error(function(data,statut,headers,config){
-		alert(data);
-	});
+		
+		
+	}
 });
