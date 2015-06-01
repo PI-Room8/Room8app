@@ -20,6 +20,7 @@ angular.module('Room8.controllers.Myflat', [
         });
 
         $scope.add = function(mate) {
+            
         }
     }
 

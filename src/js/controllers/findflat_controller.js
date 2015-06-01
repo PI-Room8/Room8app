@@ -4,7 +4,8 @@ angular.module('Room8.controllers.Findflat', [])
 
 	if(! $rootScope.Connected){
  		$location.path('/Registration').replace();
-
+ 	}else if($rootScope.User.id_colocation !=0){
+ 		$location.path('/').replace;
 	}else{
 		$scope.search = function(flat) {
 			if(flat.nom!=''){	
