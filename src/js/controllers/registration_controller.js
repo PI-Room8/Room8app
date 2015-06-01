@@ -61,10 +61,10 @@ angular.module('Room8.controllers.Registration', [
 		$http({
 			method:'GET',
 			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/login?name='+ User.pseudo +'&password='+ User.password,
-			headers:{'Accept':'application/text'}
+			headers:{'Accept':'application/json'}
 		}).success(function(data){
 			if(data==""){
-				alert("Error : Your pseudo and your password don't match");
+				alert("Error : Your pseudo and your password don't match ");
 			}else{
 				/*Update du user global ici*/
 				$rootScope.User=data;
