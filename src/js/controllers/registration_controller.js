@@ -60,37 +60,25 @@ angular.module('Room8.controllers.Registration', [
 
 		$http({
 			method:'GET',
-			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getPassword?nom='+ User.pseudo,
+			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/login?name='+ User.pseudo +'&password='+ User.password,
 			headers:{'Accept':'application/text'}
 		}).success(function(data){
 			if(data==""){
 				alert("Error : Your pseudo and your password don't match");
-			}
-			else if(data==User.password){
+			}else{
 				/*Update du user global ici*/
-				$http({
-            		method:'GET',
-            		url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUser?name=' + User.pseudo ,
-            		headers: {'Accept': 'application/json'}
-            	}).success(function(data2){	
-            		$rootScope.User=data2;
-            		console.log($rootScope.User);
-					alert("Successful!");
-					$rootScope.Connected=true;
-					if ($rootScope.User.id_colocation == 0){
-						$location.path('/FindFlat').replace();
-					}
-					else {
-						console.log($rootScope.User.id_colocation);
-						$location.path('/').replace();
-					}
-					$scope.$apply();
-            	}).error(function(data2){
-					alert('Can\'t get User');
-				});	
-			}
-			else{
-				alert("Error : Your pseudo and your password don't match");
+				$rootScope.User=data;
+				alert("Successful!");
+				$rootScope.Connected=true;
+				if ($rootScope.User.id_colocation == 0){
+					$location.path('/FindFlat').replace();
+				}
+				else {
+					console.log($rootScope.User.id_colocation);
+					$location.path('/').replace();
+				}
+				$scope.$apply();
+            	
 			}	
 		}).error(function(data, status,headers,config){
 			alert(data, status,headers,config);
