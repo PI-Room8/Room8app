@@ -4,6 +4,7 @@ angular.module('Room8.controllers.News', [
 
 .controller('NewsController', function($scope,$http, $rootScope, $location){
 	
+
 	$http({
 		method:'GET',
 		url:'http://room8env-vgps3jicwb.elasticbeanstalk.com/getSession',
@@ -32,5 +33,4 @@ angular.module('Room8.controllers.News', [
 	}).error(function(data,statut,headers,config){
 		alert(data);
 	});
-	
 });
