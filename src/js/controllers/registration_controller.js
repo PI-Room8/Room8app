@@ -42,7 +42,6 @@ angular.module('Room8.controllers.Registration', [
 						else {
 							$location.path('/Newsfeed').replace();
 						}
-						$scope.$apply();
             		}).error(function(data2){
 						alert('Can\'t get User');
 					});
@@ -80,22 +79,19 @@ angular.module('Room8.controllers.Registration', [
 				$rootScope.User=data;
 				alert("Successful!");
 				$rootScope.Connected=true;
+                console.log($rootScope.User.id_colocation);
 				if ($rootScope.User.id_colocation == 0){
 					$location.path('/FindFlat').replace();
 				}
 				else {
 					$location.path('/Newsfeed').replace();
-				}
-				$scope.$apply();
-            	
+				}            	
 			}	
 		}).error(function(data, status,headers,config){
 			alert(data, status,headers,config);
 		
 		});
-		
-	$scope.connected=$rootScope.connected;
-	
+			
 	}
 
 	}else{

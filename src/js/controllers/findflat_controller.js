@@ -7,7 +7,7 @@ angular.module('Room8.controllers.Findflat', [
 	if($rootScope.User.id_utilisateur == 0){
  		$location.path('/').replace();
  	}else if($rootScope.User.id_colocation !=0){
- 		$location.path('/Newsfeed').replace;
+ 		$location.path('/Newsfeed').replace();
 	}else{
 		$scope.search = function(flat) {
 			if(flat.nom!=''){	

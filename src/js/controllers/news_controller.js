@@ -4,10 +4,11 @@ angular.module('Room8.controllers.News', [
 
 .controller('NewsController', function($scope,$http, $rootScope, $location){
 	
-	if($rootScope.User.id_utilisateur == 0){
+	if($rootScope.User.id_utilisateur != 0){
 			if($rootScope.User.id_colocation==0){
 				$location.path('/FindFlat').replace();
 			}else{
+                console.log($rootScope.User.id_colocation);
 				$http({
 		            method: 'GET',
 		            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllNews?id=' + $rootScope.User.id_colocation,
