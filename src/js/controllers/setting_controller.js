@@ -39,7 +39,7 @@ angular.module('Room8.controllers.Settings', [
         }
     }
         else{
-        location.path('/').replace();
+        $location.path('/').replace();
     }
 
     $scope.refresh = function() {
