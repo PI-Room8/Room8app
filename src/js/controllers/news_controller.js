@@ -19,7 +19,9 @@ angular.module('Room8.controllers.News', [
 		            alert('Can\'t get News');
 		        });
 			}
-	}else{
+	}
+    else{
+
         $location.path('/').replace();
     }
 });

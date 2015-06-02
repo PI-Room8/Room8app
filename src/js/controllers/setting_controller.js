@@ -37,6 +37,8 @@ angular.module('Room8.controllers.Settings', [
                 alert(data, status, headers, config);
             });
         }
+
+
     }else{
         $location.path('/').replace();
     }

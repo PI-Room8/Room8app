@@ -11,6 +11,16 @@ angular.module('Room8.controllers.Myflat', [
 	}else{
         $http({
             method: 'GET',
+            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getMyFlat?id=' + $rootScope.User.id_colocation,
+            headers: {'Accept': 'application/text'}
+        }).success(function(data){
+            $scope.myflatname = data;
+        }).error(function(data, status, headers, config){
+            alert('Can\'t get Flat Name');
+        });
+
+        $http({
+            method: 'GET',
             url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllRoommates?id=' + $rootScope.User.id_colocation,
             headers: {'Accept': 'application/json'}
         }).success(function(data){
