@@ -1,13 +1,10 @@
 angular.module('Room8.controllers.News', [
 	'mobile-angular-ui.components.scrollable',
-	'Room8.controllers.Main'
 ])
 
 .controller('NewsController', function($scope,$http, $rootScope, $location){
 	
-
-	$rootScope.session();
-	if($rootScope.User.Connected){
+	if($rootScope.User.id_utilisateur == 0){
 			if($rootScope.User.id_colocation==0){
 				$location.path('/FindFlat').replace();
 			}else{
@@ -21,7 +18,8 @@ angular.module('Room8.controllers.News', [
 		            alert('Can\'t get News');
 		        });
 			}
-		
-		
 	}
+    else{
+        location.path('/').replace();
+    }
 });

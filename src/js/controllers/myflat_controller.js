@@ -1,16 +1,17 @@
 angular.module('Room8.controllers.Myflat', [
-	'mobile-angular-ui.components.scrollable',
-	'Room8.controllers.Main'
-])
+	'mobile-angular-ui.components.scrollable'
+    ])
 
 .controller('MyflatController', function($scope,$http, $rootScope, $location){
-	$rootScope.session();
-    if($rootScope.User.id_colocation == 0){
+
+    if($rootScope.User.id_utilisateur == 0){
+        $location.path('/').replace();
+    }else if($rootScope.User.id_colocation == 0){
         $location.path('/FindFlat').replace();
 	}else{
         $http({
             method: 'GET',
-            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllRoommates?id=' + $rootScope.User.id_colocation, /* TO COMPLETE */
+            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllRoommates?id=' + $rootScope.User.id_colocation,
             headers: {'Accept': 'application/json'}
         }).success(function(data){
             $scope.Liste = data;
@@ -19,7 +20,15 @@ angular.module('Room8.controllers.Myflat', [
         });
 
         $scope.add = function(mate) {
-            
+            $http({
+                method:'POST',  
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addMate?mail=' + mate.mail,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data){
+                alert('New mate added');
+            }).error(function(data){
+                alert('Can\'t add new mate');
+            });
         }
     }
 

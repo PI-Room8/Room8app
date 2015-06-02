@@ -1,11 +1,13 @@
-angular.module('Room8.controllers.Findflat', ['Room8.controllers.Main'])
+angular.module('Room8.controllers.Findflat', [
+	'mobile-angular-ui.components.scrollable'
+	])
 
 .controller('FindflatController', function($scope,$http,$location,$rootScope){
-	$rootScope.session();
-	if(! $rootScope.Connected){
- 		$location.path('/Registration').replace();
+	
+	if($rootScope.User.id_utilisateur == 0){
+ 		$location.path('/').replace();
  	}else if($rootScope.User.id_colocation !=0){
- 		$location.path('/').replace;
+ 		$location.path('/Newsfeed').replace;
 	}else{
 		$scope.search = function(flat) {
 			if(flat.nom!=''){	

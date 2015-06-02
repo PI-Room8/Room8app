@@ -1,8 +1,9 @@
-angular.module('Room8.controllers.Settings', ['Room8.controllers.Main'])
+angular.module('Room8.controllers.Settings', [
+    'mobile-angular-ui.components.scrollable'
+])
 
 .controller('SettingController', function($scope,$http,$location,$rootScope){
-	$rootScope.session();
-    if($rootScope.Connected == true){
+    if($rootScope.User.id_utilisateur != 0){
 
         $scope.User = $rootScope.User;
 
@@ -36,6 +37,9 @@ angular.module('Room8.controllers.Settings', ['Room8.controllers.Main'])
                 alert(data, status, headers, config);
             });
         }
+    }
+        else{
+        location.path('/').replace();
     }
 
     $scope.refresh = function() {

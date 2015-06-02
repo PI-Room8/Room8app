@@ -1,10 +1,10 @@
 angular.module('Room8.controllers.Flatcreation', [
-	'mobile-angular-ui.components.scrollable',
+	'mobile-angular-ui.components.scrollable'
 ])
 
 .controller('FlatcreationController', function($scope,$http, $location,$route, $rootScope){
 	
-if($rootScope.Connected==true){
+if($rootScope.User.id_utilisateur == 0){
 
 	$scope.create = function(dataFlat) {
 
@@ -16,8 +16,7 @@ if($rootScope.Connected==true){
 				if(data==1){
             		alert('Your flat has been created');
 					
-					$location.path('/').replace;
-					$scope.$apply();
+					$location.path('/Newsfeed').replace;
 				}else if(data==0){
            			alert('This name is already being used');
         		}else{
@@ -30,5 +29,7 @@ if($rootScope.Connected==true){
 	
 	
 
-}else{$location.path('/Registration').replace();}
+}else{
+	$location.path('/').replace();
+}
 });

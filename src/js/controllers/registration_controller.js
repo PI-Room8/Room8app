@@ -1,11 +1,21 @@
 angular.module('Room8.controllers.Registration', [
-	'mobile-angular-ui.components.scrollable',
-	//'validation.match'
-	
+	'mobile-angular-ui.components.scrollable',	
 ])
 
 .controller('RegistrationController', function($scope,$http, $location,$route, $rootScope){
-	
+
+		$http({
+			method:'GET',
+			url:'http://room8env-vgps3jicwb.elasticbeanstalk.com/getSession',
+			headers: {'Accept': 'application/json'}
+		}).success(function(data){
+				$rootScope.User=data;
+				$rootScope.Connected=true;
+		}).error(function(data, status,headers,config){
+			alert(data, status,headers,config);
+		});
+
+	if($rootScope.User.id_utilisateur == 0){
 
 	$scope.create = function(dataUser) {
 		if(dataUser.password==dataUser.confirmPassword){
@@ -30,7 +40,7 @@ angular.module('Room8.controllers.Registration', [
 							$location.path('/FindFlat').replace();
 						}
 						else {
-							$location.path('/').replace();
+							$location.path('/Newsfeed').replace();
 						}
 						$scope.$apply();
             		}).error(function(data2){
@@ -74,8 +84,7 @@ angular.module('Room8.controllers.Registration', [
 					$location.path('/FindFlat').replace();
 				}
 				else {
-					console.log($rootScope.User.id_colocation);
-					$location.path('/').replace();
+					$location.path('/Newsfeed').replace();
 				}
 				$scope.$apply();
             	
@@ -87,6 +96,10 @@ angular.module('Room8.controllers.Registration', [
 		
 	$scope.connected=$rootScope.connected;
 	
+	}
+
+	}else{
+		$location.path('/Newsfeed').replace();
 	}
 
 });
