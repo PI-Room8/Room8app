@@ -4,8 +4,8 @@ angular.module('Room8.controllers.News', [
 
 .controller('NewsController', function($scope,$http, $rootScope, $location){
 	
-	if($rootScope.User.id_utilisateur != 0){
-			if($rootScope.User.id_colocation==0){
+	if($rootScope.User.id_utilisateur != '0'){
+			if($rootScope.User.id_colocation=='0'){
 				$location.path('/FindFlat').replace();
 			}else{
                 console.log($rootScope.User.id_colocation);
@@ -21,6 +21,7 @@ angular.module('Room8.controllers.News', [
 			}
 	}
     else{
+
         $location.path('/').replace();
     }
 });
