@@ -1,5 +1,6 @@
 angular.module('Room8.controllers.Settings', [
-    'mobile-angular-ui.components.scrollable'
+    'mobile-angular-ui.components.scrollable',
+    'Room8.directives.ngConfirmBoxClick'
 ])
 
 .controller('SettingController', function($scope,$http,$location,$rootScope){
@@ -68,3 +69,4 @@ angular.module('Room8.controllers.Settings', [
     }
 
 });
+
