@@ -4,7 +4,7 @@ angular.module('Room8.controllers.Main', [
 
 .controller('MainController', function($rootScope,$http, $location, $scope){
 	$scope.logout=function(){
-		if($rootScope.user.id_utilisateur!=0){
+		if($rootScope.User.id_utilisateur!=0){
 			$http({
 				method:'GET',
 				url:'http://room8env-vgps3jicwb.elasticbeanstalk.com/logout',
@@ -12,12 +12,13 @@ angular.module('Room8.controllers.Main', [
 			}).success(function(){
 					$rootScope.User.id_colocation='0';
 					$rootScope.User.id_utilisateur='0';
-				
 					$location.path('/').replace();
 			}).error(function(){
-				console.log("error disconnected");
+				console.log("error disconnection");
 			});
 
+		}else{
+			$location.path('/').replace();
 		}
 	}
 });

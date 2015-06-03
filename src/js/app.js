@@ -16,7 +16,6 @@ angular.module('Room8', [
 .config(function($routeProvider) {
 
   $routeProvider.when('/', {templateUrl:'registration.html',  reloadOnSearch: false});
-  $routeProvider.when('/Registration', {templateUrl:'registration.html',  reloadOnSearch: false});
   $routeProvider.when('/MyFlat', {templateUrl:'myflat.html',  reloadOnSearch: false});
   $routeProvider.when('/Accounts', {templateUrl:'accounts.html',  reloadOnSearch: false});
   $routeProvider.when('/Chat', {templateUrl:'chat.html',  reloadOnSearch: false});
@@ -32,11 +31,5 @@ angular.module('Room8', [
 .run(function($rootScope) {
     $rootScope.Connected= false;
     $rootScope.User = {}; //id_utilisateur, nom_utilisateur, mot_de_passe, adresse_mail, id_colocation
-
-    /*$rootScope.updateUser = function(data) {
-        $rootScope.User.push(data); 
-        $rootScope.$apply();
-         
-    }*/
 });
 

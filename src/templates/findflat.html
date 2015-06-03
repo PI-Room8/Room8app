@@ -12,7 +12,7 @@
 		</form>
 		</br>
 		
-        <div class="table-responsive">
+        <div overflow: auto class="table-hover table-condensed">
 			<table class="table" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
 
 				<thead>
@@ -28,8 +28,8 @@
 						<td>{{colocation.nombre_colocataire}}</td>
 						<td>
 							<div class="input-group">
-                				<button ng-click="join(colocation)" class="btn btn-default btn-sm">
-                					<span class="glyphicon glyphicon-circle-arrow-right"></span>
+                				<button ng-click="join(colocation.id_colocation)" class="btn btn-primary">
+                					Join
                 				</button>
             				</div>
 	   					</td>		
