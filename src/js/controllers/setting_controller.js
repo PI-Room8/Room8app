@@ -37,6 +37,29 @@ angular.module('Room8.controllers.Settings', [
                 alert(data, status, headers, config);
             });
         }
+        
+        $scope.leaveFlat=function(){
+			 $http({
+                method: 'GET',
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/leaveFlat?flatId='+$rootScope.User.id_colocation+'&userId='+$rootScope.User.id_utilisateur,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data){
+				$rootScope.User.id_colocation=0;
+				/*$http({
+					method:'GET',
+					url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUser?name=' + $rootScope.User.nom_utilisateur,
+					headers: {'Accept': 'application/json'}
+				}).success(function(data2){	
+					$rootScope.User=data2;
+				
+				}).error(function(data2, status,headers,config){
+					console.log(data, status,headers,config);
+				});*/
+			}).error(function(data, status,headers,config){
+					console.log(data, status,headers,config);
+			});
+		
+		}
 
 
     }else{
@@ -44,7 +67,7 @@ angular.module('Room8.controllers.Settings', [
     }
 
     $scope.refresh = function() {
-        window.location.reload();
+        $location.path('/Settings').replace();
     }
 
 });
