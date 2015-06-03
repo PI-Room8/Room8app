@@ -2,11 +2,11 @@ angular.module('Room8.controllers.Flatcreation', [
 	'mobile-angular-ui.components.scrollable'
 ])
 
-.controller('FlatcreationController', function($scope,$http, $location,$route, $rootScope){
+.controller('FlatcreationController', function($scope,$http, $location, $rootScope){
 	
-if($rootScope.User.id_utilisateur == 0){
+	if($rootScope.User.id_utilisateur != 0){
 
-	$scope.create = function(dataFlat) {
+		$scope.create = function(dataFlat) {
 
 			$http({
 				method:'POST', 	
@@ -14,21 +14,20 @@ if($rootScope.User.id_utilisateur == 0){
 				headers: {'Accept': 'application/json'}
 			}).success(function(data){
 				if(data==1){
-            		alert('Your flat has been created');
-					
+        			alert('Your flat has been created');
 					$location.path('/Newsfeed').replace;
 				}else if(data==0){
            			alert('This name is already being used');
         		}else{
-            		alert('Try Again, something went wrong');
-        		}}).error(function(data, status, headers, config){
-					alert(data);
-				});
-        	}
-	
-	
+           			alert('Try Again, something went wrong');
+       			}
+        	}).error(function(data, status, headers, config){
+   				alert(data);
+			});
+    	}	
 
-}else{
-	$location.path('/').replace();
-}
+	}else{
+		$location.path('/').replace();
+	}
+
 });
