@@ -4,7 +4,7 @@ angular.module('Room8.controllers.Flatcreation', [
 
 .controller('FlatcreationController', function($scope,$http, $location,$route, $rootScope){
 	
-if($rootScope.User.id_utilisateur == 0){
+if($rootScope.User.id_colocation == 0){
 
 	$scope.create = function(dataFlat) {
 
