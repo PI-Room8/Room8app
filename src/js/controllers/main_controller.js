@@ -14,9 +14,11 @@ angular.module('Room8.controllers.Main', [
 					$rootScope.User.id_utilisateur='0';
 					$location.path('/').replace();
 			}).error(function(){
-				console.log("error disconnected");
+				console.log("error disconnection");
 			});
 
+		}else{
+			$location.path('/').replace();
 		}
 	}
 });
