@@ -31,7 +31,6 @@ angular.module('Room8.controllers.Registration', [
 	            				headers: {'Accept': 'application/json'}
 	            			}).success(function(data2){	
 	            				$rootScope.User=data2;
-	            				console.log($rootScope.User);
 								$rootScope.Connected=true;
 								if ($rootScope.User.id_colocation == 0){
 									$location.path('/FindFlat').replace();
@@ -71,7 +70,6 @@ angular.module('Room8.controllers.Registration', [
 						$rootScope.User=data;
 						alert("Successful!");
 						$rootScope.Connected=true;
-	                	console.log($rootScope.User.id_colocation);
 						if ($rootScope.User.id_colocation == 0){
 							$location.path('/FindFlat').replace();
 						}

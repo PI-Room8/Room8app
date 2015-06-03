@@ -2,8 +2,9 @@ angular.module('Room8.controllers.Flatcreation', [
 	'mobile-angular-ui.components.scrollable'
 ])
 
-.controller('FlatcreationController', function($scope,$http, $location,$route, $rootScope){
-	
+.controller('FlatcreationController', function($scope,$http, $location, $rootScope){
+
+console.log($rootScope.User.id_utilisateur);	
 if($rootScope.User.id_utilisateur == 0){
 
 	$scope.create = function(dataFlat) {
