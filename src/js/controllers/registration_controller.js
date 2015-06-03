@@ -48,22 +48,22 @@ angular.module('Room8.controllers.Registration', [
 	
 					}else if(data==2){
 	           			alert('This pseudo is already being used');
-	           			window.location.reload();
 	        		}else if(data==3){
 	            		alert('This mail address already has an account');
-	            		window.location.reload();
 	        		}else{
 	            		alert('Try Again, something is wrong');
-	            		window.location.reload();
 	        		}
 	        	}).error(function(data, status,headers,config){
 					alert(data, status,headers,config);
 				});
 			}else{
 				alert("Please confirm your password!"); 
-				window.location.reload();
 			}
 		}
+		}else{
+		$location.path('/Newsfeed').replace();
+	}
+
 		
 		$scope.connect=function(User){
 	
@@ -72,6 +72,7 @@ angular.module('Room8.controllers.Registration', [
 				url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/login?name='+ User.pseudo +'&password='+ User.password,
 				headers:{'Accept':'application/json'}
 			}).success(function(data){
+				
 				if(data==""){
 					alert("Error : Your pseudo and your password don't match ");
 				}else{
@@ -89,13 +90,9 @@ angular.module('Room8.controllers.Registration', [
 				}	
 			}).error(function(data, status,headers,config){
 				alert(data, status,headers,config);
-			
 			});
-				
-		}
+	
 
-	}else{
-		$location.path('/Newsfeed').replace();
-	}
+}
 
 });

@@ -24,12 +24,11 @@ angular.module('Room8.controllers.Findflat', [
 
 			}else{
 				alert("Please enter a name flat"); 
-				window.location.reload();
 			}
 		}
 
 		$scope.create = function() {
-        	window.location.href="/#/Flatcreation";
+        	$location.path('/Flatcreation').replace();
     	}
 
     	$scope.join = function(colocation) {
