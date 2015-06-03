@@ -21,7 +21,6 @@ if($rootScope.User.id_utilisateur == 0){
            			alert('This name is already being used');
         		}else{
             		alert('Try Again, something went wrong');
-            		window.location.reload();
         		}}).error(function(data, status, headers, config){
 					alert(data);
 				});

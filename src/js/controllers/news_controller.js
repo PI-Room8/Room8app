@@ -21,6 +21,6 @@ angular.module('Room8.controllers.News', [
 			}
 	}
     else{
-        location.path('/').replace();
+        $location.path('/').replace();
     }
 });
