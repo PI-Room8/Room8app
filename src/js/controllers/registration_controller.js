@@ -48,22 +48,22 @@ angular.module('Room8.controllers.Registration', [
 	
 					}else if(data==2){
 	           			alert('This pseudo is already being used');
-	           			window.location.reload();
 	        		}else if(data==3){
 	            		alert('This mail address already has an account');
-	            		window.location.reload();
 	        		}else{
 	            		alert('Try Again, something is wrong');
-	            		window.location.reload();
 	        		}
 	        	}).error(function(data, status,headers,config){
 					alert(data, status,headers,config);
 				});
 			}else{
 				alert("Please confirm your password!"); 
-				window.location.reload();
 			}
 		}
+		}else{
+		$location.path('/Newsfeed').replace();
+	}
+
 		
 		$scope.connect=function(User){
 	
@@ -119,11 +119,8 @@ angular.module('Room8.controllers.Registration', [
 			}).error(function(data, status,headers,config){
 				alert(data, status,headers,config);
 			});
-		}else{
-			alert("Please confirm your password!"); 
-		}
-	}else{
-		$location.path('/Newsfeed').replace();
-	}
+	
+
+}
 
 });
