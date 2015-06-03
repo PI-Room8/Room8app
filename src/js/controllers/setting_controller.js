@@ -3,7 +3,7 @@ angular.module('Room8.controllers.Settings', [
 ])
 
 .controller('SettingController', function($scope,$http,$location,$rootScope){
-    if($rootScope.User.id_utilisateur != 0){
+    if($rootScope.User.id_utilisateur != '0'){
 
         $scope.User = $rootScope.User;
 
@@ -33,8 +33,7 @@ angular.module('Room8.controllers.Settings', [
                 alert(data, status, headers, config);
             });
         }
-    }
-        else{
+    }else{
         $location.path('/').replace();
     }
 

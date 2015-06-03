@@ -1,9 +1,4 @@
-body {
+.section {
+  background-color: #61c2aa;
+}
 
-  background-color: green;
-  padding-top: 50px;
-}
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
