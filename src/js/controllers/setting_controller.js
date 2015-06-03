@@ -43,6 +43,7 @@ angular.module('Room8.controllers.Settings', [
                 headers: {'Accept': 'application/json'}
             }).success(function(data){
 				$rootScope.User.id_colocation=0;
+				console.log($rootScope.User.id_colocation);
 				/*$http({
 					method:'GET',
 					url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUser?name=' + $rootScope.User.nom_utilisateur,

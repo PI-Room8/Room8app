@@ -14,8 +14,8 @@ angular.module('Room8.directives.ngConfirmBoxClick', [
         if (window.confirm(msg)){
 			scope.$eval(clickAction)
 		}
-        e.stopImmediatePropagation();
-        e.preventDefault();
+        //e.stopImmediatePropagation();
+        //e.preventDefault();
       });
      }
     };
