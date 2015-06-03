@@ -31,8 +31,19 @@ angular.module('Room8.controllers.Findflat', [
         	$location.path('/Flatcreation').replace();
     	}
 
-    	$scope.join = function(colocation) {
-    		alert(colocation.nom);
+    	$scope.join = function(id_colocation) {
+    		
+    		$http({
+                method:'POST',  
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/joinFlat?flatId=' + id_colocation + '&userId=' + $rootScope.User.id_utilisateur,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data){
+                alert('You join the flat !');
+                $rootScope.User.id_colocation=id_colocation;
+                $location.path('/Newsfeed').replace();
+            }).error(function(data){
+                alert('Can\'t join the flat');
+            });
     	}
 	}
 
