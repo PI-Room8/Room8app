@@ -21,7 +21,7 @@ angular.module('Room8.controllers.Groceries', [
 	        $scope.add = function(product) {
             	$http({
                 	method:'POST',  
-                	url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addProduct?product=' + product.name,
+                	url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addProduct?id='+ $rootScope.User.id_colocation + '&product=' + product.name,
                 	headers: {'Accept': 'application/json'}
             	}).success(function(data){
                 	alert('New mate added');
@@ -34,5 +34,9 @@ angular.module('Room8.controllers.Groceries', [
     else{
         $location.path('/').replace();
     }
-    
+
 });
+
+//Générer PDF
+
+//Swipe
