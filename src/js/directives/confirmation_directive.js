@@ -2,9 +2,6 @@ angular.module('Room8.directives.ngConfirmBoxClick', [
     'mobile-angular-ui.components.scrollable'
 ])
 
-
-
-
 .directive('ngConfirmBoxClick', function () {
     return {
     link: function (scope, element, attr) {

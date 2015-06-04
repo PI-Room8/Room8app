@@ -15,7 +15,7 @@ angular.module('Room8.controllers.Flatcreation', [
 			}).success(function(data){
 				if(data==1){
         			alert('Your flat has been created');
-					$location.path('/Newsfeed').replace;
+					$location.path('/Newsfeed').replace();
 				}else if(data==0){
            			alert('This name is already being used');
         		}else{
