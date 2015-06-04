@@ -10,12 +10,22 @@ angular.module('Room8.controllers.Flatcreation', [
 
 			$http({
 				method:'POST', 	
-				url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/createFlat?name='+ dataFlat.nom,
+				url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/createFlat?name='+ dataFlat.nom + '&id=' + $rootScope.User.id_utilisateur,
 				headers: {'Accept': 'application/json'}
 			}).success(function(data){
 				if(data==1){
         			alert('Your flat has been created');
-					$location.path('/Newsfeed').replace;
+        			$http({
+        				method:'GET',
+        				url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUserFlat?name='+ $rootScope.User.nom_utilisateur,
+        				headers: {'Accept': 'application/json'}
+        			}).success(function(data2){
+        				$rootScope.User.id_colocation = data2;
+        				$location.path('/Newsfeed').replace;
+        			}).error(function(data, status, headers, config){
+        				alert(data);
+        			});
+					
 				}else if(data==0){
            			alert('This name is already being used');
         		}else{
