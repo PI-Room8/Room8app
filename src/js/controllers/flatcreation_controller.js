@@ -25,7 +25,6 @@ angular.module('Room8.controllers.Flatcreation', [
         			}).error(function(data, status, headers, config){
         				alert(data);
         			});
-					
 				}else if(data==0){
            			alert('This name is already being used');
         		}else{
