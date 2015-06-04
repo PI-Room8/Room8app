@@ -1,7 +1,7 @@
-<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" overflow:auto>
+<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" ng-controller="GroceriesController" overflow:auto>
 
     <h2 class="sub-header">Groceries</h2>
-	<div class="table-responsive" ng-controller="GroceriesController">
+	<div class="table-responsive">
 
 		<table class="table" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
 
@@ -13,11 +13,13 @@
 			<tbody>
 		  
 				<tr ng-repeat="items in Liste">
-					<td>{{items}}</td> <!-- TO COMPLETE -->
+					<td>{{items.nom}}</td> <!-- TO COMPLETE -->
 				</tr>
 				
 			</tbody>
 		</table>
+
+	</div>
 
 		<p class="form-signin-heading">Is an item missing in your flat ?</p>
 
