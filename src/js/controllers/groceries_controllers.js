@@ -24,7 +24,13 @@ angular.module('Room8.controllers.Groceries', [
                 	url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addProduct?id='+ $rootScope.User.id_colocation + '&product=' + product.name,
                 	headers: {'Accept': 'application/json'}
             	}).success(function(data){
-                	alert('New mate added');
+                	if(data ==1){
+                		alert('Product added');
+                	} else if(data ==0){
+                		alert('Error: product not added');
+                	} else{
+                		alert('Error SQL');
+                	}
             	}).error(function(data){
                 	alert('Can\'t add new mate');
             	});
