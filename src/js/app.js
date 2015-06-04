@@ -13,18 +13,20 @@ angular.module('Room8', [
   'mobile-angular-ui.core.sharedState' 
 ])
 
-.config(function($routeProvider) {
+.config(function($routeProvider,$httpProvider) {
 
-  $routeProvider.when('/', {templateUrl:'registration.html',  reloadOnSearch: false});
-  $routeProvider.when('/MyFlat', {templateUrl:'myflat.html',  reloadOnSearch: false});
-  $routeProvider.when('/Accounts', {templateUrl:'accounts.html',  reloadOnSearch: false});
-  $routeProvider.when('/Chat', {templateUrl:'chat.html',  reloadOnSearch: false});
-  $routeProvider.when('/ToDo', {templateUrl:'todo.html',  reloadOnSearch: false});
-  $routeProvider.when('/Newsfeed', {templateUrl:'newsfeed.html',  reloadOnSearch: false});
-  $routeProvider.when('/Groceries', {templateUrl:'groceries.html',  reloadOnSearch: false});
-  $routeProvider.when('/Settings', {templateUrl:'settings.html',  reloadOnSearch: false});
-  $routeProvider.when('/FindFlat', {templateUrl:'findflat.html',  reloadOnSearch: false});
-  $routeProvider.when('/Flatcreation', {templateUrl:'flatcreation.html',  reloadOnSearch: false});
+	$httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+	$routeProvider.when('/', {templateUrl:'registration.html',  reloadOnSearch: false});
+	$routeProvider.when('/MyFlat', {templateUrl:'myflat.html',  reloadOnSearch: false});
+	$routeProvider.when('/Accounts', {templateUrl:'accounts.html',  reloadOnSearch: false});
+	$routeProvider.when('/Chat', {templateUrl:'chat.html',  reloadOnSearch: false});
+	$routeProvider.when('/ToDo', {templateUrl:'todo.html',  reloadOnSearch: false});
+	$routeProvider.when('/Newsfeed', {templateUrl:'newsfeed.html',  reloadOnSearch: false});
+	$routeProvider.when('/Groceries', {templateUrl:'groceries.html',  reloadOnSearch: false});
+	$routeProvider.when('/Settings', {templateUrl:'settings.html',  reloadOnSearch: false});
+	$routeProvider.when('/FindFlat', {templateUrl:'findflat.html',  reloadOnSearch: false});
+	$routeProvider.when('/Flatcreation', {templateUrl:'flatcreation.html',  reloadOnSearch: false});
 
 })
 
