@@ -4,8 +4,8 @@ angular.module('Room8.controllers.Groceries', [
 
 .controller('GroceriesController', function($scope,$http, $rootScope, $location){
 
-	if($rootScope.User.id_utilisateur != '0'){
-		if($rootScope.User.id_colocation=='0'){
+	if($rootScope.User.id_utilisateur != 0){
+		if($rootScope.User.id_colocation == 0){
 			$location.path('/FindFlat').replace();
 		}else{
         	$http({
@@ -24,15 +24,35 @@ angular.module('Room8.controllers.Groceries', [
                 	url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addProduct?id='+ $rootScope.User.id_colocation + '&product=' + product.name,
                 	headers: {'Accept': 'application/json'}
             	}).success(function(data){
-                	if(data ==1){
+                	if(data == 1){
                 		alert('Product added');
-                	} else if(data ==0){
+                		$location.path('/Groceries').replace();
+                	} else if(data == 0){
                 		alert('Error: product not added');
                 	} else{
                 		alert('Error SQL');
                 	}
             	}).error(function(data){
-                	alert('Can\'t add new mate');
+                	alert('Can\'t POST');
+            	});
+        	}
+
+        	$scope.delete = function(){
+        		$http({
+        			method:'POST',
+        			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteAllProducts?id='+ $rootScope.User.id_colocation,
+                	headers: {'Accept': 'application/json'}
+        		}).success(function(data){
+                	if(data == 1){
+                		alert('Products deleted');
+                		$location.path('/Groceries').replace();
+                	} else if(data == 0){
+                		alert('Error: products not deleted');
+                	} else{
+                		alert('Error SQL');
+                	}
+            	}).error(function(data){
+                	alert('Can\'t POST');
             	});
         	}
 		}

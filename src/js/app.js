@@ -9,6 +9,7 @@ angular.module('Room8', [
   'Room8.controllers.Findflat',
   'Room8.controllers.Flatcreation',
   'Room8.controllers.Myflat',
+  'Room8.controllers.Groceries',
   'mobile-angular-ui.components.scrollable',
   'mobile-angular-ui.core.sharedState' 
 ])
@@ -16,7 +17,7 @@ angular.module('Room8', [
 .config(function($routeProvider,$httpProvider) {
 
 	$httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 	$routeProvider.when('/', {templateUrl:'registration.html',  reloadOnSearch: false});
 	$routeProvider.when('/MyFlat', {templateUrl:'myflat.html',  reloadOnSearch: false});
 	$routeProvider.when('/Accounts', {templateUrl:'accounts.html',  reloadOnSearch: false});
