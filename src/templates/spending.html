@@ -1,0 +1,43 @@
+<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" ng-controller="SpendingController" overflow:auto>
+
+    <h2 class="sub-header">Spending</h2>
+
+		<form class="form-signin" method="POST" name="SpendingForm" role="form">
+			
+			<p class="form-signin-heading">How much did you pay ? </p>
+
+			<input type="int" id="spending" class="form-control" placeholder="$" size="30" maxlength="80" ng-model="spending.amount" required autofocus>
+
+			</br>
+
+			<div class="table-responsive">
+      			<table class="table" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
+        			<thead>
+          				<tr>
+            				<th>Mates</th>
+            				<th>Who pays ?</th>
+          				</tr>
+        			</thead>
+        			<tbody>
+          				<tr ng-repeat="roommate in Liste">
+           					<td>{{roommate.nom_utilisateur}}</td>
+           					<td><input type="checkbox"></td>
+          				</tr>
+       		 		</tbody>
+      			</table>
+    		</div>
+
+			</br>
+
+			<button ng-click="newSpending()" class="btn btn-lg btn-primary btn-block" type="submit">Publish !</button>
+		</form>
+
+
+
+</section>
+
+
+   
+ 
+
+
