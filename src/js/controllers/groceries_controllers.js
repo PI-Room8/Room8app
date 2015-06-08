@@ -21,7 +21,7 @@ angular.module('Room8.controllers.Groceries', [
 	        $scope.add = function(product) {
             	$http({
                 	method:'POST',  
-                	url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addProduct?id='+ $rootScope.User.id_colocation + '&product=' + product.name,
+                	url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addProduct?id='+ $rootScope.User.id_colocation + '&product=' + product.name + '&username=' + $rootScope.User.nom_utilisateur,
                 	headers: {'Accept': 'application/json'}
             	}).success(function(data){
                 	if(data == 1){

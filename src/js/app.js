@@ -10,6 +10,7 @@ angular.module('Room8', [
   'Room8.controllers.Flatcreation',
   'Room8.controllers.Myflat',
   'Room8.controllers.Groceries',
+  'Room8.controllers.Money',
   'mobile-angular-ui.components.scrollable',
   'mobile-angular-ui.core.sharedState' 
 ])
@@ -22,7 +23,7 @@ angular.module('Room8', [
 	$routeProvider.when('/MyFlat', {templateUrl:'myflat.html',  reloadOnSearch: false});
 	$routeProvider.when('/Accounts', {templateUrl:'accounts.html',  reloadOnSearch: false});
 	$routeProvider.when('/Chat', {templateUrl:'chat.html',  reloadOnSearch: false});
-	$routeProvider.when('/ToDo', {templateUrl:'todo.html',  reloadOnSearch: false});
+	$routeProvider.when('/Money', {templateUrl:'money.html',  reloadOnSearch: false});
 	$routeProvider.when('/Newsfeed', {templateUrl:'newsfeed.html',  reloadOnSearch: false});
 	$routeProvider.when('/Groceries', {templateUrl:'groceries.html',  reloadOnSearch: false});
 	$routeProvider.when('/Settings', {templateUrl:'settings.html',  reloadOnSearch: false});
