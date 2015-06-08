@@ -2,13 +2,89 @@
 
     <h2 class="sub-header">Accounts</h2>
 
+    	<div class="container">	
+			<h3 class="col-xs-12 col-sm-8 col-md-6"><center>Your Sold</center></h3>
+		</div>
+		
+		</br>
+		
+		<div class="container">	
+			<h4>You have : <span ng-style="color(30)">30 €     
+				<button ng-click="toggle()" class="btn btn-primary" toggle="toggle" target="transferts">Details</button>
+			</h4>
+			<div ng-show="isVisible" class="ng-hide">
+				<table class="table col-xs-12" ng-controller="NewsController">
+
+					<thead>
+						<tr>
+							<th>Amount</th>
+							<th>Roommate</th>
+							<th>Transfert</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><p ng-style="color(10)">10 €</p></td>		
+							<td>Clement</td>
+							<td><button type="submit" class="btn btn-primary">{{text(10)}}</button></td>
+						</tr>
+						<tr>
+							<td><p ng-style="color(-5)">-5 €</p></td>
+							<td>Kenji</td>
+							<td><button type="submit" class="btn btn-primary">I paid</button></td>
+						</tr>
+				
+					</tbody>
+				</table>
+  				
+			</div> 
+			
+		</div>
+
+		</br>
+
+		<div class="container">	
+			<h4>Did you reimburse someone ?</h4>
+
+			<form class="form-inline">
+
+				<div class="row">
+
+  					<div class="col-xs-5 input-group">
+					    <label class="sr-only" for="exampleInputAmount">Amount (in euros)</label>
+    					<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+    					<div class="input-group-addon">€</div>
+					</div>
+
+  					<div class="col-xs-3">
+    					<i class="fa fa-chevron-circle-right fa-2x"></i>
+  					</div>	
+
+					<div class="col-xs-4">
+    					<select class="form-control input-xs">
+    						<option value="one">JB</option>
+    						<option value="two">Gabiche</option>
+    						<option value="three">Hypnolou</option>
+    					</select>
+  					</div>
+
+				</div>
+
+				</br>
+
+ 				<div class="row text-center">
+   					<button type="submit" class="btn btn-primary center-block">Transfer cash</button>
+  				</div>
+
+			</form>
+
+		</div>
+
 		<p class="form-signin-heading">Do you have to be reimbursed ? </p>
 
 		<form class="form-signin" method="POST" name="AccountsForm" role="form">
 			<button ng-click="newSpending()" class="btn btn-lg btn-primary btn-block" type="submit">Publish your spending !</button>
 		</form>
-
-
 
 </section>
 
