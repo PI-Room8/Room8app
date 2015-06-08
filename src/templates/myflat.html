@@ -1,10 +1,9 @@
 
-<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" overflow:auto ng-controller="MyflatController">
+<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" ng-controller="MyflatController">
 
   <h2 class="sub-header"> My Flat: {{myflatname}} !</h2>
-    <div class="table-responsive">
 
-      <table class="table" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
+      <table class="table col-xs-8">
         <thead>
           <tr>
             <th>Mates</th>
@@ -16,25 +15,22 @@
           </tr>
         </tbody>
       </table>
+    
 
-      <h3> You want to add a new Roomate ?</h3>
+      <h3> Want to add a new Roommate ?</h3>
 
-      <h4> Give us his/her email </h4>
+      <h4> Give us his email !</h4>
       <form class="form-signin" method="POST" name="AddMateForm" role="form">
         <label for="mail" class="sr-only">Email address</label>
         <p>  
           <input type="email" class="form-control" id="mail" placeholder="flatmate@room8.com" size="30" maxlength="50" ng-model="mate.mail"required>
           <div ng-show="AddMateForm.$submitted || form.mail.$touched">
-            <span ng-show="AddMateForm.mail.$error.required">Tell us his/her email.</span>
-            <span ng-show="AddMateform.mail.$error.email">This is not a valid email.</span>
+            <span ng-show="AddMateForm.mail.$error.required">Tell us his email</span>
+            <span ng-show="AddMateform.mail.$error.email">This is not a valid email</span>
           </div>
-          <button ng-click="add(mate)" type="submit" class="btn btn-lg btn-primary btn-block">Add</button>
+          <button ng-click="add(mate)" type="submit" class="btn btn-lg btn-primary btn-block">Send</button>
         </p>
       </form>
-
-    </div>
-
-
 </section>
 
 
