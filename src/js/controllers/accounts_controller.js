@@ -32,6 +32,9 @@ angular.module('Room8.controllers.Accounts', [
 
 	}
 
-}
+	else{
+		$location.path('/').replace();
 
+	}
 
+});
