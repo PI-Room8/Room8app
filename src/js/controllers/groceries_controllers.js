@@ -15,13 +15,14 @@ angular.module('Room8.controllers.Groceries', [
 			alert('Can\'t get Products');
 		});
 	}
+
 	if($rootScope.User.id_utilisateur != 0){
 		if($rootScope.User.id_colocation == 0){
 			$location.path('/FindFlat').replace();
 		}else{
 			$scope.getAllProducts();
 
-	        $scope.add = function(product) {
+	        $scope.addProduct = function(product) {
             	$http({
                 	method:'POST',  
                 	url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addProduct?id='+ $rootScope.User.id_colocation + '&product=' + product.name + '&username=' + $rootScope.User.nom_utilisateur,
@@ -40,10 +41,11 @@ angular.module('Room8.controllers.Groceries', [
                 	alert('Can\'t POST');
             	});
         	}
+
 			$scope.deleteOneProduct=function(){
 			
-			
 			}
+
         	$scope.deleteProducts = function(){
         		$http({
         			method:'POST',
@@ -76,3 +78,5 @@ angular.module('Room8.controllers.Groceries', [
 //Générer PDF
 
 //Swipe
+
+//Notification Push
