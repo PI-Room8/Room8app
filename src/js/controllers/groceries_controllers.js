@@ -8,15 +8,7 @@ angular.module('Room8.controllers.Groceries', [
 		if($rootScope.User.id_colocation == 0){
 			$location.path('/FindFlat').replace();
 		}else{
-        	$http({
-                method: 'GET',
-		        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllProducts?id=' + $rootScope.User.id_colocation,
-		        headers: {'Accept': 'application/json'}
-	        }).success(function(data){
-	            $scope.Liste = data;
-	        }).error(function(data, status, headers, config){
-	            alert('Can\'t get Products');
-	        });
+			$scope.getAllProducts();
 
 	        $scope.add = function(product) {
             	$http({
@@ -26,6 +18,7 @@ angular.module('Room8.controllers.Groceries', [
             	}).success(function(data){
                 	if(data == 1){
                 		alert('Product added');
+                		$scope.getAllProducts();
                 		$location.path('/Groceries').replace();
                 	} else if(data == 0){
                 		alert('Error: product not added');
@@ -36,8 +29,11 @@ angular.module('Room8.controllers.Groceries', [
                 	alert('Can\'t POST');
             	});
         	}
-
-        	$scope.delete = function(){
+			$scope.deleteOneProduct=function(){
+			
+			
+			}
+        	$scope.deleteProducts = function(){
         		$http({
         			method:'POST',
         			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteAllProducts?id='+ $rootScope.User.id_colocation,
@@ -55,6 +51,17 @@ angular.module('Room8.controllers.Groceries', [
                 	alert('Can\'t POST');
             	});
         	}
+        	$scope.getAllProducts=function(){
+				$http({
+	                method: 'GET',
+			        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllProducts?id=' + $rootScope.User.id_colocation,
+			        headers: {'Accept': 'application/json'}
+		        }).success(function(data){
+		            $scope.Liste = data;
+		        }).error(function(data, status, headers, config){
+		            alert('Can\'t get Products');
+		        });
+			}
 		}
 	}
     else{
