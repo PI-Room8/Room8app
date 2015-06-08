@@ -16,24 +16,24 @@
           </tr>
         </tbody>
       </table>
-
-      <h3> You want to add a new Roomate ?</h3>
-
-      <h4> Give us his/her email </h4>
-      <form class="form-signin" method="POST" name="AddMateForm" role="form">
-        <label for="mail" class="sr-only">Email address</label>
-        <p>  
-          <input type="email" class="form-control" id="mail" placeholder="flatmate@room8.com" size="30" maxlength="50" ng-model="mate.mail"required>
-          <div ng-show="AddMateForm.$submitted || form.mail.$touched">
-            <span ng-show="AddMateForm.mail.$error.required">Tell us his/her email.</span>
-            <span ng-show="AddMateform.mail.$error.email">This is not a valid email.</span>
-          </div>
-          <button ng-click="add(mate)" type="submit" class="btn btn-lg btn-primary btn-block">Add</button>
-        </p>
-      </form>
-
     </div>
+	<div>
+		<h3> You want to add a new Roomate ?</h3>
 
+		<h4> Give us his/her email </h4>
+		<form class="form-signin" method="POST" name="AddMateForm" role="form">
+			<label for="mail" class="sr-only">Email address</label>
+			<p>  
+			  <input type="email" class="form-control" id="mail" placeholder="flatmate@room8.com" size="30" maxlength="50" ng-model="mate.mail"required>
+			  <div ng-show="AddMateForm.$submitted || form.mail.$touched">
+				<span ng-show="AddMateForm.mail.$error.required">Tell us his/her email.</span>
+				<span ng-show="AddMateform.mail.$error.email">This is not a valid email.</span>
+			  </div>
+			  <button ng-click="add(mate)" type="submit" class="btn btn-lg btn-primary btn-block">Add</button>
+			</p>
+		</form>
+
+	</div>
 
 </section>
 
