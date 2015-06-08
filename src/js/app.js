@@ -11,6 +11,7 @@ angular.module('Room8', [
   'Room8.controllers.Myflat',
   'Room8.controllers.Groceries',
   'Room8.controllers.Money',
+  'Room8.controllers.Accounts',
   'mobile-angular-ui.components.scrollable',
   'mobile-angular-ui.core.sharedState' 
 ])

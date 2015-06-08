@@ -36,7 +36,5 @@ angular.module('Room8.controllers.Money', [
 					}
     			
 				}
-	
-
 
 });

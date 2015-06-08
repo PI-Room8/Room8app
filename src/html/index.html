@@ -22,7 +22,8 @@
 		<!-- Sidebars -->
 		<div ng-include="'sidebar.html'"  ui-track-as-search-param='true'class="sidebar sidebar-left">
 		</div>
-
+		<div ng-include="'sideberRight.html'"ui-track-as-search-param='true'class="sidebar sidebar-right">
+		</div>
 		<div class="app">
 
 			<!-- Navbars -->
@@ -38,9 +39,9 @@
 						<i class="fa fa-bars"></i> Menu
 					</div>
 				</div>
-				<div class="btn-group pull-right" ui-yield-to="navbarAction">
-					<div ui-toggle="uiSidebarRight" class="btn">
-						<i class="fa fa-comment"></i> Chat
+				<div class="btn-group pull-right" >
+					<div ui-toggle="uiSidebarRight" class="btn sidebar-toggle" ui-yield-to="navbarAction">
+						<i class="fa fa-bars"></i> Chat
 					</div>
 				</div>
 			</div>
@@ -48,7 +49,7 @@
       
 
 			<!-- App Body -->
-			<div class="app-body" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ng-swip-left='Ui.turnOn("uiSidebarRight")'>
+			<div class="app-body" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ng-swipe-left='Ui.turnOn("uiSidebarRight")'>
 				<div class="app-content">
 					<ng-view></ng-view>  
 				</div>

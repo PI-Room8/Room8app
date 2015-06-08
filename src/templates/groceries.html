@@ -13,7 +13,9 @@
 			<tbody>
 		  
 				<tr ng-repeat="items in Liste">
-					<td>{{items.nom}}</td> <!-- TO COMPLETE -->
+					<td>{{items.nom}} 
+						<ui-switch ng-model="switchStatus" class="pull-right"><ui-switch><!-- TO COMPLETE -->
+					</td> 
 				</tr>
 				
 			</tbody>
@@ -27,12 +29,12 @@
 		<p class="form-signin-heading">Is an item missing in your flat ?</p>
 
 		<form class="form-signin" method="POST" name="GroceriesForm" role="form">
-			<input type="text" id="pseudo" class="form-control" placeholder="Missing product" size="30" maxlength="30" ng-model="product.name" required autofocus>
+			<input type="text" id="pseudo" class="form-control" placeholder="Missing product" size="30" maxlength="80" ng-model="product.name" required autofocus>
 			</br>
 			<div ng-show="SignUpForm.$submitted || form.mail.$touched">
 			</div>
 			</br>
-			<button ng-click="add(product)" class="btn btn-lg btn-primary btn-block" type="submit">Add this product</button>
+			<button ng-click="addProduct(product)" class="btn btn-lg btn-primary btn-block" type="submit">Add this product</button>
 		</form>
 
 		</br>
@@ -40,7 +42,7 @@
 		<p class="form-signin-heading">You bought all the groceries, empty the shopping list !</p>
 
 		<form class="form-signin" method="POST" name="GroceriesForm" role="form">
-			<button ng-click="delete()" class="btn btn-lg btn-primary btn-block" type="submit">Empty</button>
+			<button ng-click="deleteProducts()" class="btn btn-lg btn-primary btn-block" type="submit">Empty</button>
 		</form>
 
 
