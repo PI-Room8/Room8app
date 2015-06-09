@@ -9,7 +9,7 @@
 		</br>
 		
 		<div class="container">	
-			<h4>You have : <span ng-style="color(30)">30 €     
+			<h4>You have : <span ng-style="color({{solde}})">{{sold}} €     
 				<button ng-click="toggle()" class="btn btn-primary" toggle="toggle" target="transferts">Details</button>
 			</h4>
 			<div ng-show="isVisible" class="ng-hide">
@@ -19,21 +19,15 @@
 						<tr>
 							<th>Amount</th>
 							<th>Roommate</th>
-							<th>Transfert</th>
+							<th>Amount</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td><p ng-style="color(10)">10 €</p></td>		
-							<td>Clement</td>
-							<td><button type="submit" class="btn btn-primary">{{text(10)}}</button></td>
+						<tr ng-repeat="transfer in Liste">
+							<td>{{pay(transfer)}}</td>
+							<td><p ng-style="color(transfer)">{{transfer.dette}} €</p></td>		
+							<td><button ng-click="deleteTransfer(transfer)" type="submit" class="btn btn-primary">{{text(transfer)}}</button></td>
 						</tr>
-						<tr>
-							<td><p ng-style="color(-5)">-5 €</p></td>
-							<td>Kenji</td>
-							<td><button type="submit" class="btn btn-primary">I paid</button></td>
-						</tr>
-				
 					</tbody>
 				</table>
   				
@@ -44,47 +38,47 @@
 		</br>
 
 		<div class="container">	
-			<h4>Did you reimburse someone ?</h4>
+			<!--<h4>Did you reimburse someone ?</h4>
 
 			<form class="form-inline">
 
 				<div class="row">
 
-  					<div class="col-xs-5 input-group">
-					    <label class="sr-only" for="exampleInputAmount">Amount (in euros)</label>
-    					<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
-    					<div class="input-group-addon">€</div>
-					</div>
+  					<div class="col-xs-6">
+  						<div class="input-group">
+   							<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount"ng-model="transfer2.amount">
+    						<div class="input-group-addon">€</div>
+						</div>
+ 				 	</div>
 
-  					<div class="col-xs-3">
+  					<div class="col-xs-2">
     					<i class="fa fa-chevron-circle-right fa-2x"></i>
   					</div>	
 
-					<div class="col-xs-4">
-    					<select class="form-control input-xs">
-    						<option value="one">JB</option>
-    						<option value="two">Gabiche</option>
-    						<option value="three">Hypnolou</option>
+  					<div class="col-xs-4 input-group">
+  						<select class="form-control input-xs" ng-repeat="roomate in Liste2" ng-model="transfer2.mate">
+    						<option>{{roomate.nom_utilisateur}}</option>
     					</select>
-  					</div>
+    
+					</div>
 
 				</div>
 
 				</br>
 
- 				<div class="row text-center">
-   					<button type="submit" class="btn btn-primary center-block">Transfer cash</button>
+  				<div class="row text-center">
+    				<button ng-click="newTransfer(transfer2)" type="submit" class="btn btn-primary center-block">Announce reimbursement</button>
   				</div>
 
+			</form> -->
+
+			<h4>Do you have to be reimbursed ? </h4>
+
+			<form class="form-signin" method="POST" name="AccountsForm" role="form">
+				<button ng-click="newSpending()" class="btn btn-lg btn-primary btn-block" type="submit">Publish your spending !</button>
 			</form>
 
 		</div>
-
-		<p class="form-signin-heading">Do you have to be reimbursed ? </p>
-
-		<form class="form-signin" method="POST" name="AccountsForm" role="form">
-			<button ng-click="newSpending()" class="btn btn-lg btn-primary btn-block" type="submit">Publish your spending !</button>
-		</form>
 
 </section>
 

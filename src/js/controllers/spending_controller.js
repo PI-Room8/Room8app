@@ -1,6 +1,6 @@
 angular.module('Room8.controllers.Spending', [
     'mobile-angular-ui.components.scrollable',
-    'Room8.directives.ngConfirmBoxClick'
+    'Room8.directives.ChecklistModel'
 ])
 
 .controller('SpendingController', function($scope,$http,$location,$rootScope){
@@ -13,16 +13,21 @@ angular.module('Room8.controllers.Spending', [
         }).success(function(data){
             $scope.Liste = data;
 
-            /*$http({
-                method: 'POST',
-                url: 'http://localhost:8080/app/addSpending',
-                data: $scope.Liste,
-                headers: {'Accept': 'application/json'}
-            }).success(function(data){
-                alert('OK');
-            }).error(function(data, status, headers, config){
-                alert('Can\'t post spending');
-            });*/
+            $scope.newSpending = function(Payers,amount) {
+                $http({
+                    method: 'POST',
+                    url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addSpending?id=' + $rootScope.User.id_utilisateur + '&amount=' + amount,
+                    data: Payers,
+                    headers: {'Accept': 'application/json'}
+                }).success(function(data){
+                    alert('You announced a spending');
+                    $location.path('/Accounts').replace();
+                }).error(function(data, status, headers, config){
+                    alert('Can\'t post transfer');
+                });
+            
+            }
+        
         }).error(function(data, status, headers, config){
             alert('Can\'t get roomates');
         });
