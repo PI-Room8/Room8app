@@ -26,7 +26,6 @@ angular.module('Room8.controllers.Spending', [
                 }).error(function(data, status, headers, config){
                     alert('Can\'t post transfer');
                 });
-            
             }
         
         }).error(function(data, status, headers, config){
