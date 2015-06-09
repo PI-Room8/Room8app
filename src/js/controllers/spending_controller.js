@@ -12,12 +12,13 @@ angular.module('Room8.controllers.Spending', [
             headers: {'Accept': 'application/json'}
         }).success(function(data){
             $scope.Liste = data;
+            $scope.mate = [];
 
             $scope.newSpending = function(Payers,amount) {
                 $http({
                     method: 'POST',
                     url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addSpending?id=' + $rootScope.User.id_utilisateur + '&amount=' + amount,
-                    data: Payers,
+                    data: $scope.mate,
                     headers: {'Accept': 'application/json'}
                 }).success(function(data){
                     alert('You announced a spending');
