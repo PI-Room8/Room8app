@@ -1,0 +1,40 @@
+
+<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()"  ng-controller="TodoController">
+
+          <h2 class="sub-header">News Feed </h2>
+         
+
+					<table class="table col-xs-8">
+
+							<thead>
+								<tr>
+									<th>Task</th>
+									<th>Done</th>
+								</tr>
+							</thead>
+							<tbody>
+		  
+								<tr>
+									<td>Passer le balai</td>
+									<td>
+										<a class="btn btn-danger" href="#"> 
+										<i class="fa fa-trash-o fa-"></i> Delete</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Ranger Salon</td>
+									<td>
+										<div class="task" ui-turn-off='uiButtons' ng-swipe-left='show()' ng-swipe-right='hide()'>
+											<a class="btn btn-primary" href="#"> 
+											<i class="fa fa-check-circle fa-"></i> I did it</a>
+										</div>
+									</td>
+								</tr>
+				
+							</tbody>
+					</table>
+			
+</section>
+
+
+
