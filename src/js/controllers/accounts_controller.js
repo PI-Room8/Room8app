@@ -6,7 +6,7 @@ angular.module('Room8.controllers.Accounts', [
 
     if($rootScope.User.id_utilisateur != '0'){
 
-        $http({
+        /*$http({
             method: 'GET',
             url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getSold?id=' + $rootScope.User.id_utilisateur,
             headers: {'Accept': 'application/json'}
@@ -24,10 +24,28 @@ angular.module('Room8.controllers.Accounts', [
             $scope.Liste = data;
         }).error(function(data, status, headers, config){
             alert('Can\'t get transfers');
+        });*/
+
+        $http({
+            method: 'GET',
+            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllRoommates?id=' + $rootScope.User.id_colocation,
+            headers: {'Accept': 'application/json'}
+        }).success(function(data){
+            $scope.Mate = data;
+            console.log($scope.Mate);
+        }).error(function(data, status, headers, config){
+            alert('Can\'t get Roommates');
         });
+
 
         $scope.isVisible = false;
         $scope.customStyle = {};
+        $scope.transf = {
+        	"idDoit": $rootScope.User.id_utilisateur,
+        	"idRecoit":"0",
+        	"amount":"0"
+        };
+
  		
  		$scope.toggle = function() {
             $scope.isVisible =! $scope.isVisible;
@@ -96,18 +114,5 @@ angular.module('Room8.controllers.Accounts', [
 	else{
 		$location.path('/').replace();
 	}
-
-        /*$http({
-            method: 'GET',
-            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllRoomates?id=' + $rootScope.User.id_colocation,
-            headers: {'Accept': 'application/json'}
-        }).success(function(data){
-            $scope.Liste2 = data;
-        }).error(function(data, status, headers, config){
-            alert('Can\'t get transfers');
-        });*/
-
-
-        // I toggle the value of isVisible.
 
 });

@@ -24,7 +24,7 @@
 					</thead>
 					<tbody>
 						<tr ng-repeat="transfer in Liste">
-							<td>{{pay(transfer)}}</td>
+							<td>{{payer(transfer)}}</td>
 							<td><p ng-style="color(transfer)">{{transfer.dette}} €</p></td>		
 							<td><button ng-click="deleteTransfer(transfer)" type="submit" class="btn btn-primary">{{text(transfer)}}</button></td>
 						</tr>
@@ -38,7 +38,7 @@
 		</br>
 
 		<div class="container">	
-			<!--<h4>Did you reimburse someone ?</h4>
+			<h4>Did you reimburse someone partially ?</h4>
 
 			<form class="form-inline">
 
@@ -46,7 +46,7 @@
 
   					<div class="col-xs-6">
   						<div class="input-group">
-   							<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount"ng-model="transfer2.amount">
+   							<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount"ng-model="transf.amount">
     						<div class="input-group-addon">€</div>
 						</div>
  				 	</div>
@@ -56,10 +56,9 @@
   					</div>	
 
   					<div class="col-xs-4 input-group">
-  						<select class="form-control input-xs" ng-repeat="roomate in Liste2" ng-model="transfer2.mate">
-    						<option>{{roomate.nom_utilisateur}}</option>
+  						<select class="form-control input-xs" >
+    						<option ng-repeat="roomate in Mate" ng-model="transf.idRecoit" value="roomate.id_utilisateur">{{roomate.nom_utilisateur}}</option>
     					</select>
-    
 					</div>
 
 				</div>
@@ -67,16 +66,14 @@
 				</br>
 
   				<div class="row text-center">
-    				<button ng-click="newTransfer(transfer2)" type="submit" class="btn btn-primary center-block">Announce reimbursement</button>
+    				<button ng-click="deleteTransfer(transfer2)" type="submit" class="btn btn-primary center-block">Announce reimbursement</button>
   				</div>
 
-			</form> -->
+			</form>
 
 			<h4>Do you have to be reimbursed ? </h4>
 
-			<form class="form-signin" method="POST" name="AccountsForm" role="form">
-				<button ng-click="newSpending()" class="btn btn-lg btn-primary btn-block" type="submit">Publish your spending !</button>
-			</form>
+			<button ng-click="newSpending()" type="submit" class="btn btn-lg btn-primary btn-block">Publish</button>
 
 		</div>
 

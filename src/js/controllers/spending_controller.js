@@ -14,7 +14,7 @@ angular.module('Room8.controllers.Spending', [
             $scope.Liste = data;
             $scope.mate = [];
 
-            $scope.newSpending = function(Payers,amount) {
+            $scope.newTransfer = function(mate,amount) {
                 $http({
                     method: 'POST',
                     url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addSpending?id=' + $rootScope.User.id_utilisateur + '&amount=' + amount,
