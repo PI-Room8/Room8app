@@ -8,7 +8,6 @@ angular.module('Room8.controllers.Accounts', [
 
         $http({
             method: 'GET',
-            //url: 'http://192.168.1.90:8080/app/getSold?id=' + $rootScope.User.id_utilisateur,
             url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getSold?id=' + $rootScope.User.id_utilisateur,
             headers: {'Accept': 'application/json'}
         }).success(function(data){
@@ -36,15 +35,14 @@ angular.module('Room8.controllers.Accounts', [
         	"amount":"0"
         };
 
+
         $scope.getAll = function() {
         	$http({
          	   	method: 'GET',
-         	   	//url: 'http://192.168.1.90:8080/app/getAllTransfers?id=' + $rootScope.User.id_utilisateur,            
             	url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllTransfers?id=' + $rootScope.User.id_utilisateur,
         	    headers: {'Accept': 'application/json'}
       	  	}).success(function(data){
       	      	$scope.Liste = data;
-      	      	console.log($scope.Liste);
       	      	$scope.isVisible =! $scope.isVisible;
        	 	}).error(function(data, status, headers, config){
             	alert('Can\'t get transfers');
@@ -116,7 +114,6 @@ angular.module('Room8.controllers.Accounts', [
     		}).error(function(data, status, headers, config){
     			alert('Can\'t post transfer');
     		});
-        	
     	}
 
 	}

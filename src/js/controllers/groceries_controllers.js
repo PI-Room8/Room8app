@@ -94,9 +94,3 @@ angular.module('Room8.controllers.Groceries', [
     }
 
 });
-
-//Générer PDF
-
-//Swipe
-
-//Notification Push

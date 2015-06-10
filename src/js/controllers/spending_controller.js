@@ -13,12 +13,13 @@ angular.module('Room8.controllers.Spending', [
         }).success(function(data){
             $scope.Liste = data;
             $scope.mate = [];
+            $scope.user = $rootScope.User.id_utilisateur;
 
             $scope.newTransfer = function(mate,amount) {
                 $http({
                     method: 'POST',
-                    url: 'http://192.168.1.90:8080/app/addSpending?id=' + $rootScope.User.id_utilisateur + '&amount=' + amount,                    
-                    //url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addSpending?id=' + $rootScope.User.id_utilisateur + '&amount=' + amount,
+                    //url: 'http://192.168.1.90:8080/app/addSpending?id=' + $rootScope.User.id_utilisateur + '&amount=' + amount,                    
+                    url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addSpending?id=' + $rootScope.User.id_utilisateur + '&amount=' + amount,
                     data: $scope.mate,
                     headers: {'Accept': 'application/json'}
                 }).success(function(data){

@@ -23,7 +23,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr ng-repeat="transfer in Liste">
+						<tr ng-repeat="transfer in Liste" ng-if="transfer.dette != 0">
 							<td>{{payer(transfer.nomRecoit,transfer.nomDoit)}}</td>
 							<td ng-style="color(transfer.nomRecoit)">{{transfer.dette}} €</td>		
 							<td><button ng-click="deleteTransfer(transfer)" type="submit" class="btn btn-primary">{{text(transfer.nomRecoit)}}</button></td>
@@ -66,7 +66,7 @@
 				</br>
 
   				<div class="row text-center">
-    				<button ng-click="deleteTransfer(transfer2)" type="submit" class="btn btn-primary center-block">Announce reimbursement</button>
+    				<button ng-click="deleteTransfer(transf)" type="submit" class="btn btn-primary center-block">Announce reimbursement</button>
   				</div>
 
 			</form>
