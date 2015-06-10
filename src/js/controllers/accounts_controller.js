@@ -6,8 +6,9 @@ angular.module('Room8.controllers.Accounts', [
 
     if($rootScope.User.id_utilisateur != '0'){
 
-        /*$http({
+        $http({
             method: 'GET',
+            //url: 'http://192.168.1.90:8080/app/getSold?id=' + $rootScope.User.id_utilisateur,
             url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getSold?id=' + $rootScope.User.id_utilisateur,
             headers: {'Accept': 'application/json'}
         }).success(function(data){
@@ -18,21 +19,10 @@ angular.module('Room8.controllers.Accounts', [
 
         $http({
             method: 'GET',
-            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllTransfers?id=' + $rootScope.User.id_utilisateur,
-            headers: {'Accept': 'application/json'}
-        }).success(function(data){
-            $scope.Liste = data;
-        }).error(function(data, status, headers, config){
-            alert('Can\'t get transfers');
-        });*/
-
-        $http({
-            method: 'GET',
             url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllRoommates?id=' + $rootScope.User.id_colocation,
             headers: {'Accept': 'application/json'}
         }).success(function(data){
             $scope.Mate = data;
-            console.log($scope.Mate);
         }).error(function(data, status, headers, config){
             alert('Can\'t get Roommates');
         });
@@ -46,22 +36,32 @@ angular.module('Room8.controllers.Accounts', [
         	"amount":"0"
         };
 
- 		
- 		$scope.toggle = function() {
-            $scope.isVisible =! $scope.isVisible;
-        }
+        $scope.getAll = function() {
+        	$http({
+         	   	method: 'GET',
+         	   	//url: 'http://192.168.1.90:8080/app/getAllTransfers?id=' + $rootScope.User.id_utilisateur,            
+            	url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllTransfers?id=' + $rootScope.User.id_utilisateur,
+        	    headers: {'Accept': 'application/json'}
+      	  	}).success(function(data){
+      	      	$scope.Liste = data;
+      	      	console.log($scope.Liste);
+      	      	$scope.isVisible =! $scope.isVisible;
+       	 	}).error(function(data, status, headers, config){
+            	alert('Can\'t get transfers');
+        	});
+    	}
         
-		$scope.payer = function(transfer){
-			if (transfer.nomRecoit == $rootScope.User.nom_utilisateur){
-				return transfer.nomDoit;
+		$scope.payer = function(nameget,namegive){
+			if (nameget== $rootScope.User.nom_utilisateur){
+				return namegive;
 			}
 			else{
-				return transfer.nomRecoit;
+				return nameget;
 			}
 		}
 
-		$scope.color = function (transfer){
-			if (transfer.nomRecoit == $rootScope.User.nom_utilisateur){
+		$scope.color = function (name){
+			if (name == $rootScope.User.nom_utilisateur){
 				return {"color":"green"};
 			}
 			else{
@@ -69,8 +69,17 @@ angular.module('Room8.controllers.Accounts', [
 			}
 		}
 
-		$scope.text = function (transfer){
-			if (transfer.nomRecoit == $rootScope.User.nom_utilisateur){
+		$scope.colorSolde = function (solde){
+			if (solde >= 0){
+				return {"color":"green"};
+			}
+			else{
+				return {"color":"red"};
+			}
+		}
+
+		$scope.text = function (name){
+			if (name == $rootScope.User.nom_utilisateur){
 				return "I've been paid";
 			}
 			else{

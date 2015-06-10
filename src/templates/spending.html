@@ -34,9 +34,9 @@
     		</div> -->
 
     		<label ng-repeat="roommate in Liste">
-  				<input type="checkbox" checklist-model="mate" checklist-value="roommate.id_utilisateur" /> {{roommate.nom_utilisateur}}
-  				</br>
+  				<pre><input type="checkbox" checklist-model="mate" checklist-value="roommate.id_utilisateur" /> {{roommate.nom_utilisateur}}</pre>
 			</label>
+			</br>
 			</br>
 
 			<button ng-click="newTransfer(mate, amount)" class="btn btn-lg btn-primary btn-block" type="submit">Publish !</button>
