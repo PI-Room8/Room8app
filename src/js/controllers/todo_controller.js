@@ -1,11 +1,10 @@
-angular.module('Room8.controllers.Money', [
-	'mobile-angular-ui.components.scrollable'
-    ])
+angular.module('Room8.controllers.ToDo', [
+	'mobile-angular-ui.components.scrollable',
+])
 
-.controller('MoneyController', function($scope,$http, $rootScope, $location){
-
-                $scope.isVisible = false;
-                $scope.customStyle = {};
+.controller('ToDoController', function($scope,$http, $rootScope, $location){
+		$scope.isVisible = false;
+        $scope.customStyle = {};
 
                 // I toggle the value of isVisible.
                 $scope.toggle = function() {
@@ -38,3 +37,7 @@ angular.module('Room8.controllers.Money', [
 				}
 
 });
+
+
+
+

@@ -1,15 +1,86 @@
-<!DOCTYPE html>
-<html>
+<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" ng-controller="AccountsController" overflow:auto>
 
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <link rel="stylesheet" href="../static/design.css" />
-        <title>Room8</title>
-    </head>
+    <h2 class="sub-header">Accounts</h2>
 
-	<!--Contenu de la page/onglet à rajouter-->
-	<section class="section container-fluid">
-	  <h1 class="page-header">Accounts Page</h1>  
-	</section>
+    	<div class="container">	
+			<h3 class="col-xs-12 col-sm-8 col-md-6"><center>Your Sold</center></h3>
+		</div>
+		
+		</br>
+		
+		<div class="container">	
+			<h4>You have : <span ng-style="color({{solde}})">{{sold}} €     
+				<button ng-click="toggle()" class="btn btn-primary" toggle="toggle" target="transferts">Details</button>
+			</h4>
+			<div ng-show="isVisible" class="ng-hide">
+				<table class="table col-xs-12" ng-controller="NewsController">
 
-</html>
+					<thead>
+						<tr>
+							<th>Amount</th>
+							<th>Roommate</th>
+							<th>Amount</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="transfer in Liste">
+							<td>{{payer(transfer)}}</td>
+							<td><p ng-style="color(transfer)">{{transfer.dette}} €</p></td>		
+							<td><button ng-click="deleteTransfer(transfer)" type="submit" class="btn btn-primary">{{text(transfer)}}</button></td>
+						</tr>
+					</tbody>
+				</table>
+  				
+			</div> 
+			
+		</div>
+
+		</br>
+
+		<div class="container">	
+			<h4>Did you reimburse someone partially ?</h4>
+
+			<form class="form-inline">
+
+				<div class="row">
+
+  					<div class="col-xs-6">
+  						<div class="input-group">
+   							<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount"ng-model="transf.amount">
+    						<div class="input-group-addon">€</div>
+						</div>
+ 				 	</div>
+
+  					<div class="col-xs-2">
+    					<i class="fa fa-chevron-circle-right fa-2x"></i>
+  					</div>	
+
+  					<div class="col-xs-4 input-group">
+  						<select class="form-control input-xs" >
+    						<option ng-repeat="roomate in Mate" ng-model="transf.idRecoit" value="roomate.id_utilisateur">{{roomate.nom_utilisateur}}</option>
+    					</select>
+					</div>
+
+				</div>
+
+				</br>
+
+  				<div class="row text-center">
+    				<button ng-click="deleteTransfer(transfer2)" type="submit" class="btn btn-primary center-block">Announce reimbursement</button>
+  				</div>
+
+			</form>
+
+			<h4>Do you have to be reimbursed ? </h4>
+
+			<button ng-click="newSpending()" type="submit" class="btn btn-lg btn-primary btn-block">Publish</button>
+
+		</div>
+
+</section>
+
+
+   
+ 
+
+

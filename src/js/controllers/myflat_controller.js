@@ -3,7 +3,6 @@ angular.module('Room8.controllers.Myflat', [
     ])
 
 .controller('MyflatController', function($scope,$http, $rootScope, $location){
-	console.log($rootScope.User);
     if($rootScope.User.id_utilisateur == 0){
         $location.path('/').replace();
     }else if($rootScope.User.id_colocation == 0){

@@ -1,0 +1,53 @@
+<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" ng-controller="SpendingController" overflow:auto>
+
+    <h2 class="sub-header">Spending</h2>
+
+		<form class="form-signin" method="POST" name="SpendingForm" role="form">
+			
+			<p class="form-signin-heading">How much did you pay ? </p>
+
+			<div class="col-xs-5 input-group">
+				<label class="sr-only" for="exampleInputAmount">Amount (in euros)</label>
+    			<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model='amount'>
+    			<div class="input-group-addon">€</div>
+    		</div>
+
+			</br>
+
+			<p class="form-signin-heading">Select the roommates who are concerned. </p>
+
+			<!-- <div class="table-responsive">
+      			<table class="table col-xs-12" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
+        			<thead>
+          				<tr>
+            				<th>Mates</th>
+            				<th></th>
+          				</tr>
+        			</thead>
+        			<tbody>
+          				<tr ng-repeat="roommate in Liste">
+           					<td>{{roommate.nom_utilisateur}}</td>
+           					<td><input ng-model='roommate.checkbox-model' type="checkbox"></td>
+          				</tr>
+       		 		</tbody>
+      			</table>
+    		</div> -->
+
+    		<label ng-repeat="roommate in Liste">
+  				<input type="checkbox" checklist-model="mate" checklist-value="roommate.id_utilisateur" /> {{roommate.nom_utilisateur}}
+  				</br>
+			</label>
+			</br>
+
+			<button ng-click="newTransfer(mate, amount)" class="btn btn-lg btn-primary btn-block" type="submit">Publish !</button>
+		</form>
+
+
+
+</section>
+
+
+   
+ 
+
+
