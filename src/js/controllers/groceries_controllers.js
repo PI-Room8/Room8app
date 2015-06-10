@@ -19,7 +19,7 @@ angular.module('Room8.controllers.Groceries', [
 				alert(product.nom + " deleted");
 				
 			}else{
-				console.log(product + "error");
+				console.log(product.nom + " error");
 			
 			}
 			$scope.getAllProducts();

@@ -9,7 +9,7 @@
 		</br>
 		
 		<div class="container">	
-			<h4>You have : <span ng-style="color({{solde}})">{{sold}} €     
+			<h4>You have : <span ng-style="color({{solde}})">{{sold | current }} €     
 				<button ng-click="toggle()" class="btn btn-primary" toggle="toggle" target="transferts">Details</button>
 			</h4>
 			<div ng-show="isVisible" class="ng-hide">

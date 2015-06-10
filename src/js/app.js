@@ -2,7 +2,8 @@ angular.module('Room8', [
   'ngRoute',
   'mobile-angular-ui.gestures',
   'mobile-angular-ui',
-
+  'mobile-angular-ui.components.scrollable',
+  'mobile-angular-ui.core.sharedState',
   'Room8.controllers.Main',
   'Room8.controllers.News',
   'Room8.controllers.Registration',
@@ -15,8 +16,7 @@ angular.module('Room8', [
   'Room8.controllers.Money',
   'Room8.controllers.Accounts',
   'Room8.controllers.Spending',
-  'mobile-angular-ui.components.scrollable',
-  'mobile-angular-ui.core.sharedState',
+ 
    
 ])
 
