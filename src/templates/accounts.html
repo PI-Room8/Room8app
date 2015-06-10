@@ -46,7 +46,7 @@
 
   					<div class="col-xs-5">
   						<div class="input-group">
-   							<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount"ng-model="transf.amount">
+   							<input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount" ng-model="transf.amount">
     						<div class="input-group-addon">€</div>
 						</div>
  				 	</div>
@@ -56,8 +56,8 @@
   					</div>	
 
   					<div class="col-xs-5 input-group">
-  						<select class="form-control input-xs" >
-    						<option ng-repeat="roomate in Mate" ng-model="transf.idRecoit" value="roomate.id_utilisateur">{{roomate.nom_utilisateur}}</option>
+  						<select class="form-control input-xs" ng-model="transf.idRecoit">
+    						<option ng-repeat="roomate in Mate" value="{{roomate.id_utilisateur}}">{{roomate.nom_utilisateur}}</option>
     					</select>
 					</div>
 

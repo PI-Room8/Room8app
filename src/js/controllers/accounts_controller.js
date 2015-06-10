@@ -31,8 +31,8 @@ angular.module('Room8.controllers.Accounts', [
         $scope.customStyle = {};
         $scope.transf = {
         	"idDoit": $rootScope.User.id_utilisateur,
-        	"idRecoit":"0",
-        	"amount":"0"
+        	"idRecoit":"",
+        	"amount":""
         };
 
 
