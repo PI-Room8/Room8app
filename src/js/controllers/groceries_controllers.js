@@ -1,9 +1,33 @@
 angular.module('Room8.controllers.Groceries', [
 	'mobile-angular-ui.components.scrollable',
+	'mobile-angular-ui.gestures.swipe',
+	'mobile-angular-ui.gestures.drag',
+	
 ])
 
-.controller('GroceriesController', function($scope,$http, $rootScope, $location){
-
+.controller('GroceriesController', function($scope,$http, $rootScope, $location, $drag, $element){
+	
+	$scope.showActions=false;
+	$scope.cancel=function(){$scope.showActions=false};
+	$scope.deleteOneProduct=function(product){
+		$http({
+			method: 'GET',
+	        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteProduct?id=' + $rootScope.User.id_colocation +'&product='+ product.nom +'&username='+ $rootScope.User.nom_utilisateur,
+	        headers: {'Accept': 'application/json'}
+		}).success(function(data){
+			if(data==1){
+				alert(product.nom + " deleted");
+				
+			}else{
+				console.log(product + "error");
+			
+			}
+			$scope.getAllProducts();
+		}).error(function(data, status, headers, config){
+			alert('Can\'t delete Products');
+		});
+	
+	};
 	$scope.getAllProducts=function(){
 		$http({
 			method: 'GET',
@@ -40,10 +64,7 @@ angular.module('Room8.controllers.Groceries', [
                 	alert('Can\'t POST');
             	});
         	}
-			$scope.deleteOneProduct=function(){
 			
-			
-			}
         	$scope.deleteProducts = function(){
         		$http({
         			method:'POST',

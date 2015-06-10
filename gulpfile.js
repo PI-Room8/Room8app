@@ -5,7 +5,7 @@
 // Please use config.js to override these selectively:
 
 var config = {
-  dest: 'www',
+  dest: 'bower_components',
   cordova: true,
   minify_images: true,
   
@@ -13,7 +13,11 @@ var config = {
     js: [
       './bower_components/angular/angular.js',
       './bower_components/angular-route/angular-route.js',
-      './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.js'
+      './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.js',
+      './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.js',
+      './bower_components/mobile-angular-ui/src/js/gestures/drag.js',
+      './bower_components/mobile-angular-ui/src/js/gestures/swipe.js',
+      './bower_components/angular-touch/angular-touch.js'
     ],
 
     fonts: [
