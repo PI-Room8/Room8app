@@ -22,6 +22,7 @@ angular.module('Room8.controllers.Accounts', [
             headers: {'Accept': 'application/json'}
         }).success(function(data){
             $scope.Mate = data;
+            $rootScope.Mates = $scope.Mate;
         }).error(function(data, status, headers, config){
             alert('Can\'t get Roommates');
         });
@@ -90,9 +91,27 @@ angular.module('Room8.controllers.Accounts', [
     	}
 
     	$scope.deleteTransfer = function(transfer) {
+            console.log(transfer);
+            if (transfer.nomDoit == $rootScope.User.nom_utilisateur) {
+                    transfer.idDoit = $rootScope.User.id_utilisateur;
+                    angular.forEach($rootScope.Mates, function(value,index){
+                        if (value.nom_utilisateur == transfer.nomRecoit) {
+                            transfer.idRecoit = value.id_utilisateur;
+                        }
+                    });
+            } else {
+                transfer.idRecoit = $rootScope.User.id_utilisateur;
+                angular.forEach($rootScope.Mates, function(value,index){
+                        if (value.nom_utilisateur == transfer.nomDoit) {
+                            transfer.idDoit = value.id_utilisateur;
+                        }
+                });
+            }
+            console.log(transfer);
+
     		$http({
     			method: 'POST',
-    			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteTransfer?idGet=' + transfer.idRecoit + '&idGive=' + transfer.idDoit + '&amount=' + transfer.amount,
+    			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteTransfer?idGet=' + transfer.idRecoit + '&idGive=' + transfer.idDoit + '&amount=' + transfer.dette,
     			headers: {'Accept': 'application/json'}
     		}).success(function(data){
     			if (data == 1){
@@ -115,6 +134,34 @@ angular.module('Room8.controllers.Accounts', [
     			alert('Can\'t post transfer');
     		});
     	}
+
+        $scope.updateTransfer = function(transfer){
+            $http({
+                method: 'POST',
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteTransfer?idGet=' + transfer.idRecoit + '&idGive=' + transfer.idDoit + '&amount=' + transfer.dette,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data){
+                if (data == 1){
+                    alert('You announced a transfer');
+                    $location.path('/Accounts').replace();
+                }
+                else if (data == 2){
+                    alert('Error: your sold has not been updated');
+                    $location.path('/Accounts').replace();
+                }
+                else if (data ==3){
+                    alert('Error: transfer not announced');
+                    $location.path('/Accounts').replace();
+                } 
+                else{
+                    alert('Error');
+                }
+
+            }).error(function(data, status, headers, config){
+                alert('Can\'t post transfer');
+            });
+
+        }
 
 	}
 	else{
