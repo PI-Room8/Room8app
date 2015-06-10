@@ -16,27 +16,10 @@
 
 			<p class="form-signin-heading">Select the roommates who are concerned. </p>
 
-			<!-- <div class="table-responsive">
-      			<table class="table col-xs-12" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
-        			<thead>
-          				<tr>
-            				<th>Mates</th>
-            				<th></th>
-          				</tr>
-        			</thead>
-        			<tbody>
-          				<tr ng-repeat="roommate in Liste">
-           					<td>{{roommate.nom_utilisateur}}</td>
-           					<td><input ng-model='roommate.checkbox-model' type="checkbox"></td>
-          				</tr>
-       		 		</tbody>
-      			</table>
-    		</div> -->
-
-    		<label ng-repeat="roommate in Liste">
-  				<input type="checkbox" checklist-model="mate" checklist-value="roommate.id_utilisateur" /> {{roommate.nom_utilisateur}}
-  				</br>
+    		<label ng-repeat="roommate in Liste" ng-if="roommate.id_utilisateur != user">
+  				<pre><input type="checkbox" checklist-model="mate" checklist-value="roommate.id_utilisateur" checked/> {{roommate.nom_utilisateur}}</pre>
 			</label>
+			</br>
 			</br>
 
 			<button ng-click="newTransfer(mate, amount)" class="btn btn-lg btn-primary btn-block" type="submit">Publish !</button>

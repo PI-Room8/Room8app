@@ -1,0 +1,17 @@
+<section class="section container-fluid scrollable scrollable-content" ng-controller="ScanController"ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()">
+	
+			<h2 class="sub-header">Scan </h2>
+			<button camera ng-model='myPicture'class="btn btn-primary">Take Picture</button>
+
+
+	<button onclick="capturePhoto()">Prendre une photo</button> <br>
+    <button onclick="capturePhotoEdit();">Prendre une photo et l'éditer</button> <br>
+    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Depuis la gallerie de photos</button><br>
+    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Depuis l'album photo</button><br>
+    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+    <img style="display:none;" id="largeImage" src="" />
+
+ </section>
+
+
+
