@@ -17,7 +17,8 @@ var config = {
       './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.js',
       './bower_components/mobile-angular-ui/src/js/gestures/drag.js',
       './bower_components/mobile-angular-ui/src/js/gestures/swipe.js',
-      './bower_components/angular-touch/angular-touch.js'
+      './bower_components/angular-touch/angular-touch.js',
+      './plugin/org.apache.cordova.camera/www/camera.js'
     ],
 
     fonts: [

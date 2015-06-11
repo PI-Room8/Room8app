@@ -70,7 +70,6 @@ angular.module('Room8.controllers.Scan', [
     // Un bouton déclenchera l'appel de cette fonction
     //
     function capturePhoto() {
-    	console.log("coucou photo")
       // Prendre une photo avec l'appareil photo du mobile et récupérer l'image sous forme de flux encodé en Base64
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
     }
@@ -84,7 +83,8 @@ angular.module('Room8.controllers.Scan', [
 
     // Un bouton déclenchera l'appel de cette fonction
     //
-    function getPhoto(source) {
+    $scope.getPhoto = function () {
+
       // Récupérer l'URI d'un fichier image à partir de la source spécifiée
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
         destinationType: destinationType.FILE_URI,
