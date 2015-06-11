@@ -133,8 +133,8 @@ node_modules
 # Compilés platforms
 platforms
 
-# Compilés www
-www
+# Plugins
+plugins
 
 ### Bower ###
 bower_components
