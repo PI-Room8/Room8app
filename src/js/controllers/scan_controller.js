@@ -18,7 +18,7 @@ angular.module('Room8.controllers.Scan', [
 
     // Attendre que PhoneGap soit prêt
     //
-    document.addEventListener("deviceready",onDeviceReady,false);
+    document.addEventListener("deviceready",$scope.onDeviceReady,false);
 
     // PhoneGap est prêt
     //

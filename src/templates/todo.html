@@ -15,7 +15,7 @@
 							<tbody>
 		  
 								<tr ng-repeat="task in Tasks">
-									<td>{{task.name}}</td>
+									<td>{{task.texte}}</td>
 									<td>
 										<a class="btn btn-primary" ng-click="deleteTask(task)"> 
 										<i class="fa fa-check-circle fa-"></i> I did it</a>
@@ -35,8 +35,8 @@
 <div class="row">
 
   <div class="col-xs-8">
-    <select class="form-control input-xs col-xs-4">
-    	<option ng-repeat="task in Liste" ng-model="thechosen" value="task">{{task.name}}</option>
+    <select class="form-control input-xs col-xs-4" ng-model="thechosen.idTache">
+    	<option ng-repeat="task in Liste" value="{{task.idTache}}">{{task.texte}}</option>
     </select>
   </div>
   <div class="col-xs-4">
@@ -63,7 +63,7 @@
 </div>
 
   <div class="col-xs-4">
-    <button type="submit" ng-click="newTask(newTask)" class="btn btn-primary center-block">Submit</button>
+    <button type="submit" ng-click="newTask(new)" class="btn btn-primary center-block">Submit</button>
   </div>
   
 </div>
