@@ -4,10 +4,10 @@
 			<button camera ng-model='myPicture'class="btn btn-primary">Take Picture</button>
 
 
-	<button onclick="capturePhoto()">Prendre une photo</button> <br>
-    <button onclick="capturePhotoEdit();">Prendre une photo et l'éditer</button> <br>
-    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Depuis la gallerie de photos</button><br>
-    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Depuis l'album photo</button><br>
+	<button camera onclick="capturePhoto()">Prendre une photo</button> <br>
+    <button camera onclick="capturePhotoEdit();">Prendre une photo et l'éditer</button> <br>
+    <button camera onclick="getPhoto(pictureSource.PHOTOLIBRARY);">Depuis la gallerie de photos</button><br>
+    <button camera onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">Depuis l'album photo</button><br>
     <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
     <img style="display:none;" id="largeImage" src="" />
 

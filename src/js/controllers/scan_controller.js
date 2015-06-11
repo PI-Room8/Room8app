@@ -18,20 +18,20 @@ angular.module('Room8.controllers.Scan', [
 
     // Attendre que PhoneGap soit prêt
     //
-    document.addEventListener("deviceready",$scope.onDeviceReady,false);
+    document.addEventListener("deviceready",onDeviceReady,false);
 
     // PhoneGap est prêt
     //
-    $scope.onDeviceReady=function() {
+    function onDeviceReady() {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
     }
 
     // Appelé lorsqu'une photo est bien récupérée
     //
-    $scope.onPhotoDataSuccess=function(imageData) {
+    function onPhotoDataSuccess(imageData) {
       // Décommentez pour voir le flux image encodé en Base64
-      // console.log(imageData);
+      console.log(imageData);
 
       // Récupérer l'élément image du DOM
       //
@@ -49,9 +49,9 @@ angular.module('Room8.controllers.Scan', [
 
     // Appelé lorsqu'une photo est bien récupérée
     //
-    $scope.onPhotoURISuccess=function(imageURI) {
+    function onPhotoURISuccess(imageURI) {
       // Décommentez pour voir l'URI du fichier image
-      // console.log(imageURI);
+       console.log(imageURI);
 
       // Récupérer l'élément image du DOM
       //
@@ -69,7 +69,7 @@ angular.module('Room8.controllers.Scan', [
 
     // Un bouton déclenchera l'appel de cette fonction
     //
-    $scope.capturePhoto=function() {
+    function capturePhoto() {
     	console.log("coucou photo")
       // Prendre une photo avec l'appareil photo du mobile et récupérer l'image sous forme de flux encodé en Base64
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
@@ -77,14 +77,14 @@ angular.module('Room8.controllers.Scan', [
 
     // Un bouton déclenchera l'appel de cette fonction
     //
-    $scope.capturePhotoEdit=function() {
+    $function capturePhotoEdit() {
       // Prendre une photo avec l'appareil photo du mobile, autoriser son édition, et récupérer l'image sous forme de flux encodé en Base64
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true }); 
     }
 
     // Un bouton déclenchera l'appel de cette fonction
     //
-    $scope.getPhoto=function(source) {
+    function getPhoto(source) {
       // Récupérer l'URI d'un fichier image à partir de la source spécifiée
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
         destinationType: destinationType.FILE_URI,
@@ -93,7 +93,7 @@ angular.module('Room8.controllers.Scan', [
 
     // Appelé lorsque quelque chose ne tourne pas rond
     // 
-     $scope.onFail=function(message) {
+     function onFail(message) {
       alert('Echec car : ' + message);
     }
 
