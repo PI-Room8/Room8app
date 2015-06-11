@@ -44,7 +44,25 @@ angular.module('Room8.controllers.ToDo', [
             }).success(function(data3){
                 if(data3==1){
                     alert('Your task has been asked well !');
-                    $location.path('/ToDo').replace();
+                    $http({
+                method: 'GET',
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getTasks?id=' + $rootScope.User.id_colocation,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data){
+                $scope.Tasks = data;
+            }).error(function(data, status, headers, config){
+                alert('Can\'t get the wainting tasks');
+            });
+
+            $http({
+                method: 'GET',
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getListe?id=' + $rootScope.User.id_colocation,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data2){
+                $scope.Liste = data2;
+            }).error(function(data, status, headers, config){
+                alert('Can\'t get your usual tasks');
+            });
                 }
                 else{
                     alert('Can\'t post your task');
@@ -63,7 +81,25 @@ angular.module('Room8.controllers.ToDo', [
             }).success(function(data3){
                 if(data3==1){
                     alert('Your task has been asked well !');
-                    $location.path('/ToDo').replace();
+                    $http({
+                method: 'GET',
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getTasks?id=' + $rootScope.User.id_colocation,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data){
+                $scope.Tasks = data;
+            }).error(function(data, status, headers, config){
+                alert('Can\'t get the wainting tasks');
+            });
+
+            $http({
+                method: 'GET',
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getListe?id=' + $rootScope.User.id_colocation,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data2){
+                $scope.Liste = data2;
+            }).error(function(data, status, headers, config){
+                alert('Can\'t get your usual tasks');
+            });
                 }
                 else{
                     alert('Can\'t post your task');
@@ -84,7 +120,25 @@ angular.module('Room8.controllers.ToDo', [
             }).success(function(data4){
                 if(data4==1){
                     alert('Task has been deleted');
-                    $location.path('/ToDo').replace();
+                    $http({
+                method: 'GET',
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getTasks?id=' + $rootScope.User.id_colocation,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data){
+                $scope.Tasks = data;
+            }).error(function(data, status, headers, config){
+                alert('Can\'t get the wainting tasks');
+            });
+
+            $http({
+                method: 'GET',
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getListe?id=' + $rootScope.User.id_colocation,
+                headers: {'Accept': 'application/json'}
+            }).success(function(data2){
+                $scope.Liste = data2;
+            }).error(function(data, status, headers, config){
+                alert('Can\'t get your usual tasks');
+            });
                 }
                 else{
                     alert('Can\'t delete your task');
