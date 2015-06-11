@@ -86,6 +86,7 @@ angular.module('Room8.controllers.Accounts', [
 		}
 
     	$scope.newSpending = function() {
+		$scope.getAll();
         	$location.path('/Spending').replace();
     	}
 
