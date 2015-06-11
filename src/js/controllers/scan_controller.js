@@ -22,14 +22,14 @@ angular.module('Room8.controllers.Scan', [
 
     // PhoneGap est prêt
     //
-    function onDeviceReady() {
+    $scope.onDeviceReady=function() {
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
     }
 
     // Appelé lorsqu'une photo est bien récupérée
     //
-    function onPhotoDataSuccess(imageData) {
+    $scope.onPhotoDataSuccess=function(imageData) {
       // Décommentez pour voir le flux image encodé en Base64
       // console.log(imageData);
 
@@ -49,7 +49,7 @@ angular.module('Room8.controllers.Scan', [
 
     // Appelé lorsqu'une photo est bien récupérée
     //
-    function onPhotoURISuccess(imageURI) {
+    $scope.onPhotoURISuccess=function(imageURI) {
       // Décommentez pour voir l'URI du fichier image
       // console.log(imageURI);
 
@@ -69,7 +69,7 @@ angular.module('Room8.controllers.Scan', [
 
     // Un bouton déclenchera l'appel de cette fonction
     //
-    function capturePhoto() {
+    $scope.capturePhoto=function() {
     	console.log("coucou photo")
       // Prendre une photo avec l'appareil photo du mobile et récupérer l'image sous forme de flux encodé en Base64
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
@@ -77,14 +77,14 @@ angular.module('Room8.controllers.Scan', [
 
     // Un bouton déclenchera l'appel de cette fonction
     //
-    function capturePhotoEdit() {
+    $scope.capturePhotoEdit=function() {
       // Prendre une photo avec l'appareil photo du mobile, autoriser son édition, et récupérer l'image sous forme de flux encodé en Base64
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true }); 
     }
 
     // Un bouton déclenchera l'appel de cette fonction
     //
-    function getPhoto(source) {
+    $scope.getPhoto=function(source) {
       // Récupérer l'URI d'un fichier image à partir de la source spécifiée
       navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
         destinationType: destinationType.FILE_URI,
@@ -93,7 +93,7 @@ angular.module('Room8.controllers.Scan', [
 
     // Appelé lorsque quelque chose ne tourne pas rond
     // 
-    function onFail(message) {
+     $scope.onFail=function(message) {
       alert('Echec car : ' + message);
     }
 
