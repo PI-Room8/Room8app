@@ -5,6 +5,8 @@ angular.module('Room8.controllers.Scan', [
 
 .controller('ScanController', function($scope,$http, $rootScope, $location){
 
+		
+		
 		$scope.myPictures = [];
 		$scope.$watch('myPicture', function(value) {
    			if(value) {
@@ -77,7 +79,7 @@ angular.module('Room8.controllers.Scan', [
 
     // Un bouton déclenchera l'appel de cette fonction
     //
-    $function capturePhotoEdit() {
+    function capturePhotoEdit() {
       // Prendre une photo avec l'appareil photo du mobile, autoriser son édition, et récupérer l'image sous forme de flux encodé en Base64
       navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true }); 
     }
@@ -97,4 +99,22 @@ angular.module('Room8.controllers.Scan', [
       alert('Echec car : ' + message);
     }
 
-});
+})
+
+.factory('Camera', ['$q', function($q) {
+
+  return {
+    getPicture: function(options) {
+      var q = $q.defer();
+
+      navigator.camera.getPicture(function(result) {
+        // Do any magic you need
+        q.resolve(result);
+      }, function(err) {
+        q.reject(err);
+      }, options);
+
+      return q.promise;
+    }
+  }
+}]);
