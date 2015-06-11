@@ -18,8 +18,8 @@ angular.module('Room8.directives.Scan', [
                ctrl.$setValidity('error', false);
             }, { 
                 quality : 50,
-                destinationType : Camera.DestinationType.DATA_URL,
-                sourceType : Camera.PictureSourceType.PHOTOLIBRARY,
+                destinationType : Camera.DestinationType.FILE_URI,
+                sourceType : Camera.PictureSourceType.CAMERA,
                 allowEdit : true,
                 encodingType: Camera.EncodingType.JPEG,
                 targetWidth: 1000,
