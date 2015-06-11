@@ -49,6 +49,10 @@ angular.module('Room8.controllers.Accounts', [
             	alert('Can\'t get transfers');
         	});
     	}
+
+        $scope.refresh = function() {
+        $location.path('/Accounts').replace();
+    }
         
 		$scope.payer = function(nameget,namegive){
 			if (nameget== $rootScope.User.nom_utilisateur){
@@ -117,7 +121,7 @@ angular.module('Room8.controllers.Accounts', [
     		}).success(function(data){
     			if (data == 1){
     				alert('You announced a transfer');
-    				$location.path('/Accounts').replace();
+    				$scope.refresh();
     			}
     			else if (data == 2){
     				alert('Error: your sold has not been updated');
@@ -139,7 +143,7 @@ angular.module('Room8.controllers.Accounts', [
         $scope.updateTransfer = function(transfer){
             $http({
                 method: 'POST',
-                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteTransfer?idGet=' + transfer.idRecoit + '&idGive=' + transfer.idDoit + '&amount=' + transfer.dette,
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteTransfer?idGet=' + transfer.idRecoit + '&idGive=' + transfer.idDoit + '&amount=' + transfer.amount,
                 headers: {'Accept': 'application/json'}
             }).success(function(data){
                 if (data == 1){

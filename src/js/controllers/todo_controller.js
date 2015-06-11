@@ -12,7 +12,7 @@ angular.module('Room8.controllers.ToDo', [
 		}else{
         	$http({
                 method: 'GET',
-		        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getTasks?id=' + $rootScope.User.id_colocation,
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getTasks?id=' + $rootScope.User.id_colocation,
 		        headers: {'Accept': 'application/json'}
 	        }).success(function(data){
 	            $scope.Tasks = data;
@@ -22,7 +22,7 @@ angular.module('Room8.controllers.ToDo', [
 
 	        $http({
                 method: 'GET',
-		        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getListe?id=' + $rootScope.User.id_colocation,
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getListe?id=' + $rootScope.User.id_colocation,
 		        headers: {'Accept': 'application/json'}
 	        }).success(function(data2){
 	            $scope.Liste = data2;
@@ -39,7 +39,7 @@ angular.module('Room8.controllers.ToDo', [
 		$scope.addTask = function(thechosen) {
             $http({
                 method: 'POST',
-                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addTask?id=' + $rootScope.User.id_colocation + '&username=' + $rootScope.User.nom_utilisateur + '&idTache=' + thechosen.idTache,
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addTask?idColoc=' + $rootScope.User.id_colocation + '&username=' + $rootScope.User.nom_utilisateur + '&idTache=' + thechosen.idTache,
                 headers: {'Accept': 'application/json'}
             }).success(function(data3){
                 if(data3==1){
@@ -58,7 +58,7 @@ angular.module('Room8.controllers.ToDo', [
         $scope.newTask = function(newTask) {
             $http({
                 method: 'POST',
-                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/newTask?id=' + $rootScope.User.id_colocation + '&username=' + $rootScope.User.nom_utilisateur + '&text=' + newTask,
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/newTask?idColoc=' + $rootScope.User.id_colocation + '&username=' + $rootScope.User.nom_utilisateur + '&text=' + newTask,
                 headers: {'Accept': 'application/json'}
             }).success(function(data3){
                 if(data3==1){
@@ -79,7 +79,7 @@ angular.module('Room8.controllers.ToDo', [
         $scope.deleteTask = function(done) {
             $http({
                 method: 'POST',
-                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteTask?id=' + $rootScope.User.id_colocation + '&username=' + $rootScope.User.nom_utilisateur + '&idTache=' + done.idTache,
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteTask?idColoc=' + $rootScope.User.id_colocation + '&username=' + $rootScope.User.nom_utilisateur + '&idTache=' + done.idTache,
                 headers: {'Accept': 'application/json'}
             }).success(function(data4){
                 if(data4==1){
