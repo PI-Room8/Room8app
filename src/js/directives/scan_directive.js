@@ -19,13 +19,13 @@ angular.module('Room8.directives.Scan', [
             }, { 
                 quality : 50,
                 destinationType : Camera.DestinationType.FILE_URI,
-                sourceType : Camera.PictureSourceType.CAMERA,
+               /* sourceType : Camera.PictureSourceType.CAMERA,
                 allowEdit : true,
                 encodingType: Camera.EncodingType.JPEG,
                 targetWidth: 1000,
                 targetHeight: 1000,
                 popoverOptions: CameraPopoverOptions,
-                //saveToPhotoAlbum: true 
+                //saveToPhotoAlbum: true*/
             })
          });  
       }
