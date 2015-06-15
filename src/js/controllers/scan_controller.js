@@ -101,7 +101,7 @@ angular.module('Room8.controllers.Scan', [
 
 })
 
-.factory('Camera', ['$q', function($q) {
+/*.factory('Camera', ['$q', function($q) {
 
   return {
     getPicture: function(options) {
@@ -117,4 +117,4 @@ angular.module('Room8.controllers.Scan', [
       return q.promise;
     }
   }
-}]);
+}]);*/
