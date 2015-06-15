@@ -25,7 +25,7 @@ angular.module('Room8.directives.Scan', [
                 targetWidth: 1000,
                 targetHeight: 1000,
                 popoverOptions: CameraPopoverOptions,
-                saveToPhotoAlbum: true 
+                //saveToPhotoAlbum: true 
             })
          });  
       }
