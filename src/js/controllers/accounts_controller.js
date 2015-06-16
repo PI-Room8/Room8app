@@ -97,7 +97,7 @@ angular.module('Room8.controllers.Accounts', [
 
     	$scope.deleteTransfer = function(transfer) {
             console.log(transfer);
-            if (transfer.nomDoit == $rootScope.User.nom_utilisateur) {
+            /*if (transfer.nomDoit == $rootScope.User.nom_utilisateur) {
                     transfer.idDoit = $rootScope.User.id_utilisateur;
                     angular.forEach($rootScope.Mates, function(value,index){
                         if (value.nom_utilisateur == transfer.nomRecoit) {
@@ -111,12 +111,12 @@ angular.module('Room8.controllers.Accounts', [
                             transfer.idDoit = value.id_utilisateur;
                         }
                 });
-            }
+            }*/
             console.log(transfer);
 
     		$http({
     			method: 'POST',
-    			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteTransfer?idGet=' + transfer.idRecoit + '&idGive=' + transfer.idDoit + '&amount=' + transfer.dette,
+    			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/updateWaiting?nameGet=' + transfer.nomRecoit + '&nameGive=' + transfer.nomDoit + '&amount=' + transfer.dette,
     			headers: {'Accept': 'application/json'}
     		}).success(function(data){
     			if (data == 1){
@@ -152,7 +152,7 @@ angular.module('Room8.controllers.Accounts', [
         $scope.updateTransfer = function(transfer){
             $http({
                 method: 'POST',
-                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteTransfer?idGet=' + transfer.idRecoit + '&idGive=' + transfer.idDoit + '&amount=' + transfer.amount,
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/updateWaiting?nameGet=' + transfer.nomRecoit + '&nameGive=' + transfer.nomDoit + '&amount=' + transfer.amount,
                 headers: {'Accept': 'application/json'}
             }).success(function(data){
                 if (data == 1){

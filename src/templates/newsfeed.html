@@ -1,9 +1,27 @@
 
-<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="getAllNews()">
+<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="getAllNews()" ng-controller="NewsController">
 
     <h2 class="sub-header">News Feed </h2>
-         
-	<table class="table col-xs-8" ng-controller="NewsController">
+
+    <table class="table col-xs-8">
+
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Paid me :</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>	  
+			<tr ng-repeat="debt in Liste2">
+				<td>{{debt.nomDoit}}</td>
+				<td><span id='number-default'>{{debt.enAttente | number:2}}</span> €</td>
+				<td><a class="btn btn-primary" ng-click="ackDebt(debt)"> 
+										<i class="fa fa-check-circle fa-"></i>I've been paid</a></td>
+			</tr>				
+		</tbody>
+	</table>
+	<table class="table col-xs-8">
 
 		<thead>
 			<tr>

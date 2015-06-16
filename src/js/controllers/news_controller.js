@@ -15,11 +15,42 @@ angular.module('Room8.controllers.News', [
         });
 		
 	}
+
+	$scope.getAllAttentes=function(){
+		$http({
+			method: 'GET',
+	        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllWaitings?id=' + $rootScope.User.id_utilisateur,
+	        headers: {'Accept': 'application/json'}
+        }).success(function(data){
+        	console.log(data);
+            $scope.Liste2 = data;
+        }).error(function(data, status, headers, config){
+            alert('Can\'t get debts');
+        });
+		
+	}
+
+	$scope.ackDebt = function(debt){
+		$http({
+			method: 'POST',
+	        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/updateWaiting?nameGet=' + debt.nomRecoit + '&nameGive=' + debt.nomDoit + '&amount=0',
+	        headers: {'Accept': 'application/json'}
+        }).success(function(data){
+            alert('success');
+            $scope.getAllAttentes();
+        }).error(function(data, status, headers, config){
+            alert('Can\'t post acknowledgement');
+        });
+
+	}
+
+
 	if($rootScope.User.id_utilisateur != '0'){
 		if($rootScope.User.id_colocation=='0'){
 			$location.path('/FindFlat').replace();
 		}else{
         	$scope.getAllNews();
+        	$scope.getAllAttentes();
 		}
 	}
     else{
