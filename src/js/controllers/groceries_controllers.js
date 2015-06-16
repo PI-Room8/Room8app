@@ -55,7 +55,6 @@ angular.module('Room8.controllers.Groceries', [
                 	if(data == 1){
                 		alert('Product added');
                 		$scope.getAllProducts();
-                		$location.path('/Groceries').replace();
                 	} else if(data == 0){
                 		alert('Error: product not added');
                 	} else{

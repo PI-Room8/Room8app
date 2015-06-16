@@ -31,10 +31,11 @@ angular.module('Room8.controllers.Myflat', [
         $scope.add = function(mate) {
             $http({
                 method:'POST',  
-                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addMate?mail=' + mate.mail,
+                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/inviteFriend?nomUtilisateur=' + $rootScope.User.nom_utilisateur + '&mail=' + mate.mail,
                 headers: {'Accept': 'application/json'}
             }).success(function(data){
                 alert('New mate added');
+                $location.path('/MyFlat').replace();
             }).error(function(data){
                 alert('Can\'t add new mate');
             });

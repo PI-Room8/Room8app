@@ -1,4 +1,3 @@
-
 <section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()"  ng-controller="ToDoController">
 
           <center><h2 class="sub-header">Tasks </h2></center>
@@ -73,4 +72,76 @@
 
 </div>
 
+<!--<section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()"  ng-controller="ToDoController">
 
+          <h2 class="sub-header">Tasks </h2>
+         
+
+					<table class="table col-xs-8">
+
+							<thead>
+								<tr>
+									<th>Task</th>
+									<th>Done</th>
+								</tr>
+							</thead>
+							<tbody>
+		  
+								<tr ng-repeat="task in Tasks">
+									<td>{{task.texte}}</td>
+									<td>
+										<a class="btn btn-primary" ng-click="deleteTask(task)"> 
+										<i class="fa fa-check-circle fa-"></i> I did it</a>
+									</td>
+								</tr>
+				
+							</tbody>
+					</table>
+
+
+					<button ng-click="toggle()" class="btn btn-primary" toggle="toggle" target="transferts">Add Task</button></h3>
+<div ng-show="isVisible" class="ng-hide">
+</br>
+					
+<form class="form-inline">
+
+<div class="row">
+
+  <div class="col-xs-8">
+    <select class="form-control input-xs col-xs-4" ng-model="thechosen.idTache">
+    	<option ng-repeat="task in Liste" value="{{task.idTache}}">{{task.texte}}</option>
+    </select>
+  </div>
+  <div class="col-xs-4">
+  	<button ng-click="addTask(thechosen)" type="submit" class="btn btn-primary center-block">Submit</button>
+  </div>
+  
+</div>
+</form>
+
+</br>
+
+<form class="form-inline">
+<div class="row">
+
+<div class="form-group">
+<div class="col-xs-8">
+	<div class="input-xs col-xs-3">
+  	<label for="task">Other</label>
+	</div>
+
+  	<div class="input-xs col-xs-9">
+   	<input type="text" ng-model="new" class="form-control" placeholder="Task" autofocus>  
+  	</div>
+</div>
+
+  <div class="col-xs-4">
+    <button type="submit" ng-click="newTask(new)" class="btn btn-primary center-block">Submit</button>
+  </div>
+  
+</div>
+</div>
+
+</form>
+
+</div>-->

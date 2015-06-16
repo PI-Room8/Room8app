@@ -17,7 +17,6 @@ angular.module('Room8.controllers.Findflat', [
 					headers: {'Accept': 'application/json'}
 				}).success(function(data){
 					$scope.Liste = data;
-					console.log($scope.Liste);
         		}).error(function(data){
 					alert(data);
 				});
