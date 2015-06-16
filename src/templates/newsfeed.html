@@ -18,7 +18,7 @@
 				<td>{{debt.nomDoit}}</td>
 				<td><span id='number-default'>{{debt.enAttente | number:2}}</span> €</td>
 				<td><a class="btn btn-primary" ng-click="ackDebt(debt)"> 
-										<i class="fa fa-check-circle fa-"></i>I've been paid</a></td>
+					<i class="fa fa-check-circle fa-"></i>I've been paid</a></td>
 			</tr>				
 		</tbody>
 	</table>
@@ -35,7 +35,7 @@
 		<tbody>	  
 			<tr ng-repeat="new in Liste">
 				<td>{{new.date}}</td>
-				<td>{{new.text}}</td>
+				<td><i class="fa fa-{{new.icon}}"></i> {{new.text}}</td>
 			</tr>				
 		</tbody>
 	</table>

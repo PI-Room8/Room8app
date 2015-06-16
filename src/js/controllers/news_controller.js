@@ -10,6 +10,17 @@ angular.module('Room8.controllers.News', [
 	        headers: {'Accept': 'application/json'}
         }).success(function(data2){
             $scope.Liste = data2;
+            angular.forEach($scope.Liste, function(value,index){
+            	if(value.text.includes('task')){
+            		value.icon = 'tag';
+            	}
+            	if(value.text.includes('groceries')){
+            		value.icon = 'shopping-cart';
+            	}
+            	if(value.text.includes('€')){
+            		value.icon = 'money';
+            	}
+            });
         }).error(function(data2, status, headers, config){
             alert('Can\'t get News');
         });
