@@ -6,9 +6,11 @@
 	
 		<form class="form-signin" method="POST" name="ChangeProfile" role="profile">
 			<label for="pseudo" class="sr-only">Pseudo</label>
+			Pseudo
 			<input type="text" id="pseudo" class="form-control" size="30" maxlength="30" ng-model="User.nom_utilisateur" required>
 			</br>
 			<label for="mail" class="sr-only">Email address</label>
+			Email address
 			<input type="email" class="form-control" id="mail" size="30" maxlength="50" ng-model="User.adresse_mail"required>
 			
 			<div ng-show="SignUpForm.$submitted || form.mail.$touched">
@@ -18,9 +20,17 @@
 			
 			</br>
 			<label for="pass" class="sr-only">Password</label>
-			<input type="password" id="mot_de_passe" class="form-control" ng-model="User.mot_de_passe" required>
+			Old Password
+			<input type="password" id="mot_de_passe" class="form-control" ng-model="User.mot_de_passe" data-match="User.oldpassword"required>
 			</br>
-			
+			<label for="pass" class="sr-only"> New Password</label>
+			New Password
+			<input type="password" id="pass" class="form-control" ng-model="User.nouveau_mot_de_passe" required>
+			</br>
+			<label for="pass" class="sr-only">Confirm  New Password</label>
+					Confirm  New Password
+			<input type="password" id="pass" class="form-control"  ng-model="User.confirmNewPassword" data-match="User.nouveau_mot_de_passe"  required>
+			</br>
 			
 			
 			
