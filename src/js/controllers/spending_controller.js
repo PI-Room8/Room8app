@@ -16,17 +16,23 @@ angular.module('Room8.controllers.Spending', [
             $scope.user = $rootScope.User.id_utilisateur;
 
             $scope.newTransfer = function(mate,amount) {
-                $http({
-                    method: 'POST',
-                    url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addSpending?id=' + $rootScope.User.id_utilisateur + '&amount=' + amount,
-                    data: $scope.mate,
-                    headers: {'Accept': 'application/json'}
-                }).success(function(data){
-                    alert('You announced a spending');
-                    $location.path('/Accounts').replace();
-                }).error(function(data, status, headers, config){
-                    alert('Can\'t post transfer');
-                });
+                if(angular.equals([],$scope.mate)){
+                    alert('Please select one flatmate at least, it is not useful to publish your own spendings');
+                    $location.path('/Spending');
+                }
+                else{
+                    $http({
+                        method: 'POST',
+                        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/addSpending?id=' + $rootScope.User.id_utilisateur + '&amount=' + amount,
+                        data: $scope.mate,
+                        headers: {'Accept': 'application/json'}
+                    }).success(function(data){
+                        alert('You announced a spending');
+                        $location.path('/Accounts').replace();
+                    }).error(function(data, status, headers, config){
+                        alert('Can\'t post transfer');
+                    });
+                }
             }
         
         }).error(function(data, status, headers, config){
