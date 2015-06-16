@@ -18,7 +18,6 @@
 
 			<table class="table col-xs-5" ng-controller="NewsController">
 
-
 				<tbody>	  
 					<tr>
 						<td>
@@ -31,10 +30,12 @@
 
 					<tr ng-repeat="roommate in Liste" ng-if="roommate.id_utilisateur != user">
 						<td><input type="checkbox" checklist-model="mate" checklist-value="roommate.id_utilisateur" ng-checked="master" aria-label="Slave input"/>{{roommate.nom_utilisateur}}</td>
-					</tr>				
+					</tr>
+									
 				</tbody>
 
 			</table>
+
 			</br>
 
 			<button ng-click="newTransfer(mate, amount)" class="btn btn-lg btn-primary btn-block" type="submit">Publish !</button>
