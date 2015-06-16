@@ -10,7 +10,7 @@ angular.module('Room8.controllers.Scan', [
 		$scope.myPictures = [];
 		$scope.$watch('myPicture', function(value) {
    			if(value) {
-     		myPictures.push(value);
+     		$scope.myPictures.push(value);
    			}
 		}, true);
 		$location.path('/Scan').replace();
