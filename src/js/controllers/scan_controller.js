@@ -1,4 +1,3 @@
-'use strict';
 angular.module('Room8.controllers.Scan', [
 	'mobile-angular-ui.components.scrollable',
 	'Room8.directives.Scan'

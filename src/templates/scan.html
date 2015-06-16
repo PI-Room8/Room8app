@@ -3,9 +3,9 @@
 	<h2 class="sub-header">Scan </h2>
 	<button camera ng-model='myPicture'class="btn btn-primary">Take Picture</button>
   
-	<ul ng-repeat="onepic in myPictures">
+	<ul ng-repeat="myPicture in myPictures">
 		<li style="list-style: none">
-			<input type="image" src="{{onepic}}"  width="250" height="390" alt="error"/>
+			<input type="image" src="{{myPicture}}"  width="250" height="390" alt="error"/>
 		</li>
 	</ul>
 
