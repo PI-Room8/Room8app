@@ -16,10 +16,25 @@
 
 			<p class="form-signin-heading">Select the roommates who are concerned. </p>
 
-    		<label ng-repeat="roommate in Liste" ng-if="roommate.id_utilisateur != user">
-  				<pre><input type="checkbox" checklist-model="mate" checklist-value="roommate.id_utilisateur" checked/> {{roommate.nom_utilisateur}}</pre>
-			</label>
-			</br>
+			<table class="table col-xs-5" ng-controller="NewsController">
+
+
+				<tbody>	  
+					<tr>
+						<td>
+							<label>
+								<input type="checkbox" ng-model="master">
+							</label>
+							Check all
+						</td>
+					</tr>
+
+					<tr ng-repeat="roommate in Liste" ng-if="roommate.id_utilisateur != user">
+						<td><input type="checkbox" checklist-model="mate" checklist-value="roommate.id_utilisateur" ng-checked="master" aria-label="Slave input"/>{{roommate.nom_utilisateur}}</td>
+					</tr>				
+				</tbody>
+
+			</table>
 			</br>
 
 			<button ng-click="newTransfer(mate, amount)" class="btn btn-lg btn-primary btn-block" type="submit">Publish !</button>
@@ -29,8 +44,6 @@
 
 </section>
 
-
-   
  
 
 
