@@ -16,7 +16,7 @@ angular.module('Room8.controllers.Scan', [
 	$location.path('/Scan').replace();
 	
 	$scope.sendPictures=function(){
-		if($scope.myPictures==[]){
+		if(angular.equals([],$scope.myPictures)){
 			alert("Please scan a picture first");
 		}else{
 			
