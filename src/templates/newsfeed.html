@@ -3,7 +3,7 @@
 
     <center><h2 class="sub-header">Home </h2></center>
 
-    <h3>Waiting acknoledgement</h3>
+    <center><h3>Awaiting acknowledgement</h3></center>
     <table class="table col-xs-8">
 
 		<thead>
@@ -23,7 +23,7 @@
 		</tbody>
 	</table>
 
-    <h3>News</h3>
+    <center><h3>News</h3></center>
 	<table class="table col-xs-8">
 
 		<thead>
@@ -34,8 +34,8 @@
 		</thead>
 		<tbody>	  
 			<tr ng-repeat="new in Liste">
-				<td>{{new.date}}</td>
-				<td><i class="fa fa-{{new.icon}}"></i> {{new.text}}</td>
+				<td class="{{new.col}}">{{new.date}}</td>
+				<td class="{{new.col}}"><i class="fa fa-{{new.icon}}"></i> {{new.text}}</td>
 			</tr>				
 		</tbody>
 	</table>

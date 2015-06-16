@@ -15,6 +15,13 @@ angular.module('Room8.controllers.Spending', [
             $scope.mate = [];
             $scope.user = $rootScope.User.id_utilisateur;
 
+            $scope.selectAll = function(){
+                angular.forEach($scope.Liste, function(value,index){
+                    $scope.mate.push(value.id_utilisateur);
+                });
+                console.log($scope.mate);
+            };
+
             $scope.newTransfer = function(mate,amount) {
                 if(angular.equals([],$scope.mate)){
                     alert('Please select one flatmate at least, it is not useful to publish your own spendings');

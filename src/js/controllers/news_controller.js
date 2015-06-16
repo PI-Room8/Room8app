@@ -13,12 +13,15 @@ angular.module('Room8.controllers.News', [
             angular.forEach($scope.Liste, function(value,index){
             	if(value.text.includes('task')){
             		value.icon = 'tag';
+                    value.col = 'info';
             	}
             	if(value.text.includes('groceries')){
             		value.icon = 'shopping-cart';
+                    value.col = 'warning';
             	}
             	if(value.text.includes('€')){
             		value.icon = 'money';
+                    value.col = 'success';
             	}
             });
         }).error(function(data2, status, headers, config){
