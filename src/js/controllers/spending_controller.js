@@ -27,7 +27,6 @@ angular.module('Room8.controllers.Spending', [
                         data: $scope.mate,
                         headers: {'Accept': 'application/json'}
                     }).success(function(data){
-                        alert('You announced a spending');
                         $location.path('/Accounts').replace();
                     }).error(function(data, status, headers, config){
                         alert('Can\'t post transfer');

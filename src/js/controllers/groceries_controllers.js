@@ -15,13 +15,6 @@ angular.module('Room8.controllers.Groceries', [
 	        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/deleteProduct?id=' + $rootScope.User.id_colocation +'&product='+ product.nom +'&username='+ $rootScope.User.nom_utilisateur,
 	        headers: {'Accept': 'application/json'}
 		}).success(function(data){
-			if(data==1){
-				alert(product.nom + " deleted");
-				
-			}else{
-				console.log(product.nom + " error");
-			
-			}
 			$scope.getAllProducts();
 		}).error(function(data, status, headers, config){
 			alert('Can\'t delete Products');
@@ -53,8 +46,8 @@ angular.module('Room8.controllers.Groceries', [
                 	headers: {'Accept': 'application/json'}
             	}).success(function(data){
                 	if(data == 1){
-                		alert('Product added');
                 		$scope.getAllProducts();
+                		product.name=null;
                 	} else if(data == 0){
                 		alert('Error: product not added');
                 	} else{
@@ -72,7 +65,6 @@ angular.module('Room8.controllers.Groceries', [
                 	headers: {'Accept': 'application/json'}
         		}).success(function(data){
                 	if(data == 1){
-                		alert('Products deleted');
                 		$scope.getAllProducts();
                 		$location.path('/Groceries').replace();
                 	} else if(data == 0){

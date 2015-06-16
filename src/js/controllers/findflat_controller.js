@@ -18,7 +18,7 @@ angular.module('Room8.controllers.Findflat', [
 				}).success(function(data){
 					$scope.Liste = data;
         		}).error(function(data){
-					alert(data);
+					alert('Could not find any flat');
 				});
 
 			}else{
@@ -37,11 +37,10 @@ angular.module('Room8.controllers.Findflat', [
                 url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/joinFlat?flatId=' + id_colocation + '&userId=' + $rootScope.User.id_utilisateur,
                 headers: {'Accept': 'application/json'}
             }).success(function(data){
-                alert('You joined the flat !');
                 $rootScope.User.id_colocation=id_colocation;
                 $location.path('/Newsfeed').replace();
             }).error(function(data){
-                alert('Can\'t join the flat');
+                alert('Could not join the flat');
             });
     	}
 	}

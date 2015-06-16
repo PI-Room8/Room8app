@@ -96,38 +96,21 @@ angular.module('Room8.controllers.Accounts', [
     	}
 
     	$scope.deleteTransfer = function(transfer) {
-            /*if (transfer.nomDoit == $rootScope.User.nom_utilisateur) {
-                    transfer.idDoit = $rootScope.User.id_utilisateur;
-                    angular.forEach($rootScope.Mates, function(value,index){
-                        if (value.nom_utilisateur == transfer.nomRecoit) {
-                            transfer.idRecoit = value.id_utilisateur;
-                        }
-                    });
-            } else {
-                transfer.idRecoit = $rootScope.User.id_utilisateur;
-                angular.forEach($rootScope.Mates, function(value,index){
-                        if (value.nom_utilisateur == transfer.nomDoit) {
-                            transfer.idDoit = value.id_utilisateur;
-                        }
-                });
-            }*/
-
     		$http({
     			method: 'POST',
     			url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/updateWaiting?nameGet=' + transfer.nomRecoit + '&nameGive=' + transfer.nomDoit + '&amount=' + transfer.dette,
     			headers: {'Accept': 'application/json'}
     		}).success(function(data){
     			if (data == 1){
-    				alert('You announced a transfer');
                     $http({
-            method: 'GET',
-            url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getSold?id=' + $rootScope.User.id_utilisateur,
-            headers: {'Accept': 'application/json'}
-        }).success(function(data){
-            $scope.sold = data;
-        }).error(function(data, status, headers, config){
-            alert('Can\'t get Sold');
-        });
+                        method: 'GET',
+                        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getSold?id=' + $rootScope.User.id_utilisateur,
+                        headers: {'Accept': 'application/json'}
+                    }).success(function(data){
+                        $scope.sold = data;
+                    }).error(function(data, status, headers, config){
+                        alert('Can\'t get Sold');
+                    });
     				$scope.getAll();
     			}
     			else if (data == 2){
@@ -154,7 +137,6 @@ angular.module('Room8.controllers.Accounts', [
                 headers: {'Accept': 'application/json'}
             }).success(function(data){
                 if (data == 1){
-                    alert('You announced a transfer');
                     $http({
             method: 'GET',
             url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getSold?id=' + $rootScope.User.id_utilisateur,

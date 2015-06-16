@@ -21,15 +21,15 @@
 			</br>
 			<label for="pass" class="sr-only">Password</label>
 			Old Password
-			<input type="password" id="mot_de_passe" class="form-control" ng-model="User.mot_de_passe" data-match="User.oldpassword"required>
+			<input type="password" id="mot_de_passe" class="form-control" ng-model="User.old_mot_de_passe" required>
 			</br>
 			<label for="pass" class="sr-only"> New Password</label>
 			New Password
-			<input type="password" id="pass" class="form-control" ng-model="User.nouveau_mot_de_passe" required>
+			<input type="password" id="pass" class="form-control" ng-model="User.nouveau_mot_de_passe">
 			</br>
 			<label for="pass" class="sr-only">Confirm  New Password</label>
-					Confirm  New Password
-			<input type="password" id="pass" class="form-control"  ng-model="User.confirmNewPassword" data-match="User.nouveau_mot_de_passe"  required>
+			Confirm  New Password
+			<input type="password" id="pass" class="form-control"  ng-model="User.confirme_mot_de_passe">
 			</br>
 			
 			
@@ -39,7 +39,7 @@
 			</br>
 			<button ng-click="refresh()" type="submit" class="btn btn-lg btn-primary btn-block">Cancel</button>
 			</br>
-			<button ng-click="leaveFlat()" ng-confirm-box-click="Do you really want to leave your flat?" class="btn btn-lg btn-primary btn-block" type="submit" >Leave my flat</button>
+			<button ng-click="leaveFlat()" class="btn btn-lg btn-primary btn-block" type="submit" >Leave my flat</button>
 			</br>
 		</form>
 	

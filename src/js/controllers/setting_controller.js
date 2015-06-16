@@ -6,37 +6,51 @@ angular.module('Room8.controllers.Settings', [
 .controller('SettingController', function($scope,$http,$location,$rootScope){
     if($rootScope.User.id_utilisateur != '0'){
 
-        $scope.User = $rootScope.User;
-        //$scope.User.mot_de_passe="";
-		$scope.User.oldpassword=$rootScope.User.mot_de_passe;
+        $scope.User=$rootScope.User; 
+
         $scope.update = function(User) {
-			if($scope.User.mot_de_passe==$scope.User.oldpassword && $scope.User.confirmNewPassword==$scope.User.nouveau_mot_de_passe){
-	            $http({
-	                method: 'POST',
-	                url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/updateUser?id=' + User.id_utilisateur + '&nom=' + User.nom_utilisateur  + '&mdp=' + User.nouveau_mot_de_passe + '&mail=' + User.adresse_mail,
-	                headers: {'Accept': 'application/json'}
-	            }).success(function(data){
-	                if(data==1){
-	                    $rootScope.User.nom_utilisateur = User.nom_utilisateur;
-	                    $rootScope.User.mot_de_passe = User.nouveau_mot_de_passe;
-	                    $rootScope.User.adresse_mail = User.adresse_mail;
-	                    alert('Your profile has been updated');
-	                }
-	                else if(data==2){
-	                    alert('This pseudo is already being used');
-	                }
-	                else if(data==3){
-	                    alert('This mail address already has an account');
-	                }
-	                else{
-	                    alert('Try Again, something is wrong');
-	                }
-	                //window.location.href="/#/" : POUR REDIRECTION
-	            }).error(function(data, status, headers, config){
-	                alert(data, status, headers, config);
-	            });
+			if(User.old_mot_de_passe==$rootScope.User.mot_de_passe){
+	            if(User.confirme_mot_de_passe== User.nouveau_mot_de_passe){
+                    if(User.nouveau_mot_de_passe==null){
+                        $scope.mot_de_passe = $rootScope.User.mot_de_passe;
+                    }
+                    else{
+                        $scope.mot_de_passe = User.nouveau_mot_de_passe;
+                    }
+                    $http({
+	                   method: 'POST',
+	                   url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/updateUser?id=' + User.id_utilisateur + '&nom=' + User.nom_utilisateur  + '&mdp=' + $scope.mot_de_passe + '&mail=' + User.adresse_mail,
+	                   headers: {'Accept': 'application/json'}
+	                }).success(function(data){
+	                    if(data==1){
+	                       $rootScope.User.nom_utilisateur = User.nom_utilisateur;
+	                       $rootScope.User.mot_de_passe = User.nouveau_mot_de_passe;
+	                       $rootScope.User.adresse_mail = User.adresse_mail;
+
+                            User.nouveau_mot_de_passe = null;
+                            User.confirme_mot_de_passe = null;
+                            User.old_mot_de_passe = null;
+	                        alert('Your profile has been updated');
+	                    }
+	                    else if(data==2){
+	                       alert('This pseudo is already being used');
+    	                }
+    	                else if(data==3){
+    	                    alert('This mail address already has an account');
+    	                }
+    	                else{
+    	                    alert('Try Again, something is wrong');
+    	                }
+    	            }).error(function(data, status, headers, config){
+    	                alert(data, status, headers, config);
+    	            });
+                }else{
+                    alert("Please confirm your new password");
+                    $location.path('/Settings').replace();                   
+                }
+
 			}else{
-				alert("Error: You must insert your old password and confirm your new password");
+				alert("Please insert your old password");
 				$location.path('/Settings').replace();
 			}
         
@@ -52,7 +66,7 @@ angular.module('Room8.controllers.Settings', [
 				$rootScope.User.id_colocation=0;
 				$location.path('/FindFlat').replace();
 			}).error(function(data, status,headers,config){
-					console.log(data, status,headers,config);
+					alert('Could not leave your flat');
 			});
 		
 		}

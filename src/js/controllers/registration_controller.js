@@ -24,7 +24,6 @@ angular.module('Room8.controllers.Registration', [
 						headers: {'Accept': 'application/json'}
 					}).success(function(data){
 						if(data==1){
-	            			alert('Your profile has been created');
 	            			$http({
 	            				method:'GET',
 	            				url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getUser?name=' + dataUser.nom ,
@@ -39,7 +38,7 @@ angular.module('Room8.controllers.Registration', [
 									$location.path('/Newsfeed').replace();
 								}
 	            			}).error(function(data2){
-								alert('Can\'t get User');
+								alert('Could not create your Account');
 							});
 	
 						}else if(data==2){
@@ -50,7 +49,7 @@ angular.module('Room8.controllers.Registration', [
 	            			alert('Try Again, something is wrong');
 	        			}
 	        		}).error(function(data, status,headers,config){
-						alert(data, status,headers,config);
+						alert('Could not create your Account');
 					});
 				}else{
 					alert("Please confirm your password!"); 
@@ -68,7 +67,6 @@ angular.module('Room8.controllers.Registration', [
 					}else{
 						/*Update du user global ici*/
 						$rootScope.User=data;
-						alert("Successful!");
 						$rootScope.Connected=true;
 						if ($rootScope.User.id_colocation == 0){
 							$location.path('/FindFlat').replace();
@@ -78,19 +76,18 @@ angular.module('Room8.controllers.Registration', [
 						}            	
 					}	
 				}).error(function(data, status,headers,config){
-					alert(data, status,headers,config);
+					alert('Could not connect');
 				});
 	
 			}
 
 		}
 		else{
-			console.log('Je redirige');
 			$location.path('/Newsfeed').replace();
 		}
 		
 	}).error(function(data, status,headers,config){
-		alert(data, status,headers,config);
+		alert('Your session has crashed');
 	});
 
 });
