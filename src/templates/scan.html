@@ -1,7 +1,7 @@
 <section class="section container-fluid scrollable scrollable-content" ng-controller="ScanController"ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()">
 	
 	<center><h2 class="sub-header">Scan </h2></center>
-	<center><button camera ng-model='myPicture'class="btn btn-primary" >Scan Picture</button></center>
+	<center><button camera ng-model='myPicture'class="btn btn-primary" >Scan Receipt</button></center>
 	</br>
 	<ul ng-repeat="myPicture in myPictures">
 		<li style="list-style: none">
@@ -9,7 +9,14 @@
 		</li>
 	</ul>
 	</br>
-	<center><button  ng-click='myPicture'class="btn btn-primary" >Send Pictures</button></center>
+	<center><button  ng-click='myPicture'class="btn btn-primary" >Send Picture</button></center>
+
+
+	</br>
+	</br>
+	<div><font color="red"><center><h3>Work in progress</h3></center></font>
+	</div>
+
  </section>
 
 

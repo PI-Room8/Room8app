@@ -1,8 +1,7 @@
 <section class="section container-fluid scrollable scrollable-content" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()" ng-controller="GroceriesController" overflow:auto>
 
     <center><h2 class="sub-header">Groceries</h2></center>
-	<div class="table-responsive" >
-
+	<!--<div class="table-responsive" >
 		<table class="table" data-toggle="table" data-cache="false" data-click-to-select="true" data-single-select="true">
 			
 			<thead>
@@ -14,11 +13,18 @@
 				<tbody >
 					
 					<tr ng-repeat="items in Liste">
-						<td drag-to-dismiss="deleteOneProduct(items)"  ><li class="fa fa-ellipsis-v"  >  {{items.nom}} </li>
-							
-							
+						<a drag-to-dismiss="deleteOneProduct(items)">
+
+						<td><li class="fa fa-ellipsis-v"  >  {{items.nom}} </li>	
 						</td> 
-						<!--<td ng-show="!showActions" ng-swipe-left="showActions = true">{{items.nom}} 
+						<td> 
+							<a class="btn btn-danger" ng-click="deleteOneProduct(items)">
+							<i class="fa fa-trash-o fa-lg"></i> Delete</a>
+						</td>
+
+						</a>
+
+						<!-<td ng-show="!showActions" ng-swipe-left="showActions = true">{{items.nom}} 
 							
 							
 						</td> 
@@ -26,7 +32,7 @@
 							
 							<button  class="btn btn-lg btn-primary btn-block" ng-show="showActions" ng-swipe-right="showActions = false" ng-click="cancel()">Cancel</button>
 							<button class="btn btn-lg btn-primary btn-block" ng-show="showActions" ng-swipe-right="showActions = false" ng-click="deleteOneProduct()">Delete</button>
-						</td> -->
+						</td> ->
 					</tr>
 					
 					
@@ -35,31 +41,37 @@
 			
 		</table>
 		
+	</div> -->
+
+	<h4>Missing items</h4>
+	<div class="notices-container">
+		<div ng-repeat="items in Liste"
+			drag-to-dismiss="deleteOneProduct(items)"
+			class="section section-break">
+			{{items.nom}}
+		</div>
 	</div>
 
+	</br>
+	</br>
+
+	<p class="form-signin-heading">Is an item missing in your flat ?</p>
+
+	<form class="form-signin" method="POST" name="GroceriesForm" role="form">
+		<input type="text" id="pseudo" class="form-control" placeholder="Missing product" size="30" maxlength="80" ng-model="product.name" required autofocus>
 		</br>
+		<div ng-show="SignUpForm.$submitted || form.mail.$touched"></div>
 		</br>
+		<button ng-click="addProduct(product)" class="btn btn-lg btn-primary btn-block" type="submit">Add this product</button>
+	</form>
 
-		<p class="form-signin-heading">Is an item missing in your flat ?</p>
+	</br>
 
-		<form class="form-signin" method="POST" name="GroceriesForm" role="form">
-			<input type="text" id="pseudo" class="form-control" placeholder="Missing product" size="30" maxlength="80" ng-model="product.name" required autofocus>
-			</br>
-			<div ng-show="SignUpForm.$submitted || form.mail.$touched">
-			</div>
-			</br>
-			<button ng-click="addProduct(product)" class="btn btn-lg btn-primary btn-block" type="submit">Add this product</button>
-		</form>
+	<p class="form-signin-heading"><center>You bought all the groceries? </br> Empty the shopping list!</center></p>
 
-		</br>
-
-		<p class="form-signin-heading"><center>You bought all the groceries? </br> Empty the shopping list!</center></p>
-
-		<form class="form-signin" method="POST" name="GroceriesForm" role="form">
-			<button ng-click="deleteProducts()" class="btn btn-lg btn-primary btn-block" type="submit">Empty</button>
-		</form>
-
-
+	<form class="form-signin" method="POST" name="GroceriesForm" role="form">
+		<button ng-click="deleteProducts()" class="btn btn-lg btn-primary btn-block" type="submit">Empty</button>
+	</form>
 
 </section>
 
