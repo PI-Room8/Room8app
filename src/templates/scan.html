@@ -1,14 +1,15 @@
 <section class="section container-fluid scrollable scrollable-content" ng-controller="ScanController"ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ui-scroll-bottom="loadMore()">
 	
-	<h2 class="sub-header">Scan </h2>
-	<button camera ng-model='myPicture'class="btn btn-primary">Take Picture</button>
-  
+	<center><h2 class="sub-header">Scan </h2></center>
+	<center><button camera ng-model='myPicture'class="btn btn-primary" >Scan Picture</button></center>
+	</br>
 	<ul ng-repeat="myPicture in myPictures">
 		<li style="list-style: none">
 			<input type="image" src="{{myPicture}}"  width="250" height="390" alt="error"/>
 		</li>
 	</ul>
-
+	</br>
+	<center><button  ng-click='myPicture'class="btn btn-primary" >Send Pictures</button></center>
  </section>
 
 

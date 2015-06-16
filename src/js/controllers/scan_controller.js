@@ -7,15 +7,23 @@ angular.module('Room8.controllers.Scan', [
 
 		
 		
-		$scope.myPictures = [];
-		$scope.$watch('myPicture', function(value) {
-   			if(value) {
-     		$scope.myPictures.push(value);
-   			}
-		}, true);
-		$location.path('/Scan').replace();
-
-
+	$scope.myPictures = [];
+	$scope.$watch('myPicture', function(value) {
+		if(value) {
+		$scope.myPictures.push(value);
+		}
+	}, true);
+	$location.path('/Scan').replace();
+	
+	$scope.sendPictures=function(){
+		if($scope.myPictures==[]){
+			alert("Please scan a picture first");
+		}else{
+			
+		}
+	
+	}
+		
 	
 
 })
