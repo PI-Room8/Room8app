@@ -22,7 +22,6 @@ angular.module('Room8.controllers.News', [
 	        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/getAllWaitings?id=' + $rootScope.User.id_utilisateur,
 	        headers: {'Accept': 'application/json'}
         }).success(function(data){
-        	console.log(data);
             $scope.Liste2 = data;
         }).error(function(data, status, headers, config){
             alert('Can\'t get debts');

@@ -96,7 +96,6 @@ angular.module('Room8.controllers.Accounts', [
     	}
 
     	$scope.deleteTransfer = function(transfer) {
-            console.log(transfer);
             /*if (transfer.nomDoit == $rootScope.User.nom_utilisateur) {
                     transfer.idDoit = $rootScope.User.id_utilisateur;
                     angular.forEach($rootScope.Mates, function(value,index){
@@ -112,7 +111,6 @@ angular.module('Room8.controllers.Accounts', [
                         }
                 });
             }*/
-            console.log(transfer);
 
     		$http({
     			method: 'POST',
