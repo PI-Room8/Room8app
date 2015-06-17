@@ -25,7 +25,7 @@ angular.module('Room8.controllers.News', [
             	}
             });
         }).error(function(data2, status, headers, config){
-            alert('Can\'t get News');
+            alert('Could not get News');
         });
 		
 	}
@@ -37,8 +37,9 @@ angular.module('Room8.controllers.News', [
 	        headers: {'Accept': 'application/json'}
         }).success(function(data){
             $scope.Liste2 = data;
+            $location.path('/Newsfeed').replace();
         }).error(function(data, status, headers, config){
-            alert('Can\'t get debts');
+            alert('Could not get debts');
         });
 		
 	}
@@ -49,7 +50,6 @@ angular.module('Room8.controllers.News', [
 	        url: 'http://room8env-vgps3jicwb.elasticbeanstalk.com/updateWaiting?nameGet=' + debt.nomRecoit + '&nameGive=' + debt.nomDoit + '&amount=0',
 	        headers: {'Accept': 'application/json'}
         }).success(function(data){
-            alert('success');
             $scope.getAllAttentes();
         }).error(function(data, status, headers, config){
             alert('Can\'t post acknowledgement');
